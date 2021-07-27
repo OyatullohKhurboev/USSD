@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+
+        android:id="@+id/bosh_sahifa"
+        android:icon="@drawable/home"
+        android:title="Bosh Sahifa" />
+    <item
+        android:id="@+id/til"
+        android:icon="@drawable/language"
+        android:title="Til" />
+    <item
+        android:id="@+id/call_center"
+        android:icon="@drawable/call_center"
+        android:title="Call-center" />
+    <item
+        android:id="@+id/imei"
+        android:icon="@drawable/imei"
+        android:title="IMEI.UZ" />
+    <item
+        android:id="@+id/sozlamalr"
+        android:icon="@drawable/settings"
+        android:title="Sozlamalar" />
+</menu>

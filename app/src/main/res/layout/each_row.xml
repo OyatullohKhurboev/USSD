@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/shape_background_recyclerview">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_internet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            app:cardBackgroundColor="@color/uzmobile"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:id="@+id/ivInternet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="500 mb"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPaket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="500 mb"
+                android:textColor="@color/uzmobile"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvInternet"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:text="Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#." />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

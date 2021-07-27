@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#2BD9F5</color>
+    <color name="purple_500">#2BD9F5</color>
+    <color name="purple_700">#292F3F</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="icon_color">#2BD9F5</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#292F3F</color>
+    <color name="uzmobile">#01B4FF</color>
+    <color name="beeline">#F6C12E</color>
+    <color name="mobiuz">#E31E24</color>
+    <color name="ucell">#741888</color>
+    <color name="white_text">#FEFEFE</color>
+</resources>
