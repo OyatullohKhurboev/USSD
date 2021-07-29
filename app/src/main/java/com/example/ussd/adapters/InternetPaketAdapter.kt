@@ -26,9 +26,9 @@ class InternetPaketAdapter(
     }
 
     override fun onBindViewHolder(holder: MbPaketViewHolder, position: Int) {
-        val MbPaketList= MbPaketList[position]
+        val MbPaketList = MbPaketList[position]
         holder.ivInternet.setText(MbPaketList.name)
-        holder.tvAInternet.setText(MbPaketList.name)
+        holder.tvAInternet.setText(MbPaketList.info)
 //        textView
         when (pageType) {
             PageType.Ucell ->
@@ -90,7 +90,6 @@ class InternetPaketAdapter(
 
 
     }
-
 
 
     override fun getItemCount(): Int {

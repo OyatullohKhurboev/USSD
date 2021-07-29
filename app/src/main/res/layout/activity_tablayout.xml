@@ -19,8 +19,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:background="@color/uzmobile"
-            android:minHeight="?attr/actionBarSize"
             app:navigationIcon="@drawable/toolbar_icon"
             app:titleTextColor="@color/white_text" />
 
@@ -29,15 +29,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:background="@color/background">
+            android:backgroundTint="@color/background"
+            app:tabIndicatorColor="@color/mobiuz"
+            app:tabSelectedTextColor="@color/mobiuz"
+
+            app:tabTextColor="@color/cardColor">
 
         </com.google.android.material.tabs.TabLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:backgroundTint="@color/cardColor" />
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="4" />
 
     <LinearLayout
@@ -46,23 +56,23 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_chiziq"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/cardColor" />
 
-            android:backgroundTint="#809E9E9E" />
 
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="18dp"
-            android:backgroundTint="#373E4E"
-            android:padding="13dp"
-            android:text="qoldiqni tekshirish"
-            android:textSize="20sp"
-            app:cornerRadius="12dp" />
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/qoldiq_shape"
+            android:gravity="center"
+            android:text="Qoldiqni Tekshirish "
 
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="normal" />
     </LinearLayout>
 </LinearLayout>

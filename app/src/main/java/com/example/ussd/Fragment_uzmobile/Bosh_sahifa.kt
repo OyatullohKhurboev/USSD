@@ -99,13 +99,9 @@ class Bosh_sahifa : Fragment(), AdapterView.OnItemClickListener {
         imageArray.add(R.drawable.al_chiroq)
         gridView?.setOnItemClickListener { parent, view, position, id ->
             when (position) {
-                0 -> goToTablayoutSms()
-            }
-        }
-        gridView?.setOnItemClickListener { parent, view, position, id ->
-            when (position) {
                 1 -> goToTablayoutMb()
             }
+
         }
 
 
@@ -175,13 +171,9 @@ class Bosh_sahifa : Fragment(), AdapterView.OnItemClickListener {
         return arrayList
     }
 
-    private fun goToTablayoutMb() {
-        val intent = Intent(context, Tablayout::class.java)
-        intent.putExtra("dillerType", pageType)
-        activity?.startActivity(intent)
-    }
 
-    private fun goToTablayoutSms() {
+
+    private fun goToTablayoutMb() {
         val intent = Intent(context, Tablayout::class.java)
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)

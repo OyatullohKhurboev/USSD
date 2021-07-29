@@ -1,5 +1,6 @@
 package com.example.ussd
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toolbar
@@ -34,7 +35,7 @@ class Tablayout : AppCompatActivity() {
 
 
 
-
+        toolBar = findViewById(R.id.toolbar)
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
 
@@ -66,8 +67,10 @@ class Tablayout : AppCompatActivity() {
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.mobiuz))
         }
         when (pageType) {
-            PageType.Ucell ->
+            PageType.Ucell -> {
+                toolBar.background = ContextCompat.getColor(this, R.color.ucell)
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ucell))
+            }
         }
         when (pageType) {
             PageType.Beeline ->
@@ -78,26 +81,7 @@ class Tablayout : AppCompatActivity() {
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.uzmobile))
 
         }
-//        when (pageType) {
-//            PageType.Uzmobile ->
-//                toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.uzmobile))
-//
-//        }
-//        when (pageType) {
-//            PageType.Beeline ->
-//                toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.beeline))
-//
-//        }
-//        when (pageType) {
-//            PageType.Ucell ->
-//                toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.ucell))
-//
-//        }
-//        when (pageType) {
-//            PageType.Mobiuz ->
-//                toolBar.setBackgroundColor(ContextCompat.getColor(this, R.color.mobiuz))
-//
-//        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
