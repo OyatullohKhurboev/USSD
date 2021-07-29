@@ -65,21 +65,14 @@ class Tablayout : AppCompatActivity() {
         when (pageType) {
             PageType.Mobiuz ->
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.mobiuz))
-        }
-        when (pageType) {
             PageType.Ucell -> {
-                toolBar.background = ContextCompat.getColor(this, R.color.ucell)
+//                toolBar.background = ContextCompat.getColor(this, R.color.ucell)
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ucell))
             }
-        }
-        when (pageType) {
             PageType.Beeline ->
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.beeline))
-        }
-        when (pageType) {
             PageType.Uzmobile ->
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.uzmobile))
-
         }
 
     }

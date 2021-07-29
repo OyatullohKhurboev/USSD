@@ -10,18 +10,18 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.Fragment_uzmobile.PageType
 import com.example.ussd.R
-import com.example.ussd.model.GridViewModel
+import com.example.ussd.model.InternetPaketModel
 
 class InternetPaketAdapter(
     private val context: Context,
-    private var MbPaketList: List<GridViewModel>,
+    private var MbPaketList: List<InternetPaketModel>,
     val pageType: PageType
 ) :
     RecyclerView.Adapter<InternetPaketAdapter.MbPaketViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MbPaketViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.each_row, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.mb_paket, parent, false)
         return MbPaketViewHolder(view)
     }
 
