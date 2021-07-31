@@ -33,6 +33,7 @@ class TarifReja : AppCompatActivity() {
         val pageType: PageType = intent.getSerializableExtra("dillerType") as PageType
 
 
+
         tabLayout_tarif = findViewById(R.id.tabLayout_tarif)
         viewPager_tarif = findViewById(R.id.viewPager_tarif)
 
@@ -57,18 +58,26 @@ class TarifReja : AppCompatActivity() {
         })
 
 
+        toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.mobiuz)
+
 
         when (pageType) {
-            PageType.Mobiuz ->
-                tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.mobiuz))
-            PageType.Ucell -> {
-
-                tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ucell))
+            PageType.Mobiuz -> {
+                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.mobiuz)
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.mobiuz))
             }
-            PageType.Beeline ->
-                tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.beeline))
-            PageType.Uzmobile ->
-                tabLayout_tarif.setBackgroundColor(ContextCompat.getColor(this, R.color.uzmobile))
+            PageType.Ucell -> {
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.ucell))
+                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.ucell)
+            }
+            PageType.Beeline -> {
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.beeline))
+                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.beeline)
+            }
+            PageType.Uzmobile -> {
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.uzmobile))
+                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.uzmobile)
+            }
         }
 
     }

@@ -15,7 +15,7 @@ import com.example.ussd.model.InternetPaketModel
 class InternetPaketAdapter(
     private val context: Context,
     private var MbPaketList: List<InternetPaketModel>,
-    val pageType: PageType
+    val pageType: PageType,
 ) :
     RecyclerView.Adapter<InternetPaketAdapter.MbPaketViewHolder>() {
 
@@ -28,59 +28,43 @@ class InternetPaketAdapter(
         val MbPaketList = MbPaketList[position]
         holder.ivInternet.setText(MbPaketList.name)
         holder.tvAInternet.setText(MbPaketList.info)
-//        textView
+
         when (pageType) {
-            PageType.Ucell ->
+            PageType.Ucell -> {
                 holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.ucell))
-        }
-        when (pageType) {
-            PageType.Beeline ->
-                holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.beeline))
-        }
-        when (pageType) {
-            PageType.Mobiuz ->
-                holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.mobiuz))
-        }
-        when (pageType) {
-            PageType.Uzmobile ->
-                holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))
-        }
-//        cardview
-        when (pageType) {
-            PageType.Mobiuz ->
-                holder.cardViewInternet.setCardBackgroundColor(
-                    ContextCompat.getColor(
-                        context,
-                        R.color.mobiuz
-                    )
-                )
-        }
-        when (pageType) {
-            PageType.Ucell ->
                 holder.cardViewInternet.setCardBackgroundColor(
                     ContextCompat.getColor(
                         context,
                         R.color.ucell
                     )
                 )
-        }
-        when (pageType) {
-            PageType.Beeline ->
+            }
+            PageType.Beeline -> {
+                holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.beeline))
                 holder.cardViewInternet.setCardBackgroundColor(
                     ContextCompat.getColor(
                         context,
                         R.color.beeline
                     )
                 )
-        }
-        when (pageType) {
-            PageType.Uzmobile ->
+            }
+            PageType.Mobiuz -> {
+                holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.mobiuz))
+                holder.cardViewInternet.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.mobiuz
+                    ))
+            }
+            PageType.Uzmobile -> {
+                holder.tvPaket.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))
                 holder.cardViewInternet.setCardBackgroundColor(
                     ContextCompat.getColor(
                         context,
                         R.color.uzmobile
                     )
                 )
+            }
         }
 
         holder.itemView.setOnClickListener {
