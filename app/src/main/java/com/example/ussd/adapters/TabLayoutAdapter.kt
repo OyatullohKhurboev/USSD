@@ -4,8 +4,11 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.ussd.Fragment_uzmobile.MbPaket
-import com.example.ussd.Fragment_uzmobile.PageType
+import com.example.ussd.Fragment.MbPaket
+import com.example.ussd.Fragment.PageType
+import com.example.ussd.Fragment.TarifRejaFragment
+import com.example.ussd.TarifReja
+
 
 internal class TabLayoutAdapter(
     var context: Context,
@@ -26,6 +29,18 @@ internal class TabLayoutAdapter(
                 MbPaket(2, pageType)
             }
             else -> MbPaket(1, pageType)
+        }
+        return when (position) {
+            0 -> {
+                TarifRejaFragment(0, pageType)
+            }
+            1 -> {
+                TarifRejaFragment(1, pageType)
+            }
+            2 -> {
+                TarifRejaFragment(2, pageType)
+            }
+            else -> TarifRejaFragment(1, pageType)
         }
 
     }

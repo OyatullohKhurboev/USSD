@@ -1,4 +1,4 @@
-package com.example.ussd.Fragment_uzmobile
+package com.example.ussd.Fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

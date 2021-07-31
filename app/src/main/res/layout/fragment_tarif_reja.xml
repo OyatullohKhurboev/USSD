@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context=".Fragment.MbPaket">
+    tools:context=".Fragment.TarifRejaFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMbPAket"
+        android:id="@+id/rv_tarif_reja"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-   </LinearLayout>
+</LinearLayout>
 

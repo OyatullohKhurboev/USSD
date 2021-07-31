@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/background"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_terif_reja"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -23,18 +25,22 @@
                 android:padding="15dp">
 
                 <TextView
+                    android:id="@+id/tv_tarif_nomi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Oddiy 10"
+
                     android:textColor="@color/uzmobile"
                     android:textSize="16sp"
                     android:textStyle="normal" />
 
                 <ImageView
+                    android:id="@+id/iv_tarif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:src="@drawable/tarif_reja_icon" />
 
             </LinearLayout>
@@ -43,6 +49,67 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:backgroundTint="@color/uzmobile" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp">
+
+                <TextView
+
+                    android:id="@+id/tv_AbonentTolovi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Abonent to'lovi"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_Som"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="10000 som"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_OzbekitonBoyicha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_AbonentTolovi"
+
+                    android:text="Chiquvchi O'zbekiston Bo'yicha"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_Boyicha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_OzbekitonBoyicha"
+                    android:text="Bo'yicha"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_daqiqa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_OzbekitonBoyicha"
+                    android:layout_alignParentRight="true"
+                    android:text="140 daq "
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+
+
+                    android:textStyle="normal" />
+            </RelativeLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

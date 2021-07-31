@@ -7,11 +7,10 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.R
-import com.example.ussd.model.AlphaChar
+import com.example.ussd.model.GridViewModel
 
-class GridViewAdapter(var context: Context, var arrayList: ArrayList<AlphaChar>, var color: Int) : BaseAdapter() {
+class GridViewAdapter(var context: Context, var arrayList: ArrayList<GridViewModel>, var color: Int) : BaseAdapter() {
     override fun getCount(): Int {
         return arrayList.size
     }
@@ -31,11 +30,11 @@ class GridViewAdapter(var context: Context, var arrayList: ArrayList<AlphaChar>,
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view: View = View.inflate(context, R.layout.grid_layout_list_item, null)
+        val view: View = View.inflate(context, R.layout.grid_view_list_item, null)
         val icons: ImageView = view.findViewById(R.id.icons_image)
         val names: TextView = view.findViewById(R.id.title_text)
         icons.setColorFilter(ContextCompat.getColor(context, color))
-        val listItem: AlphaChar = arrayList.get(position)
+        val listItem: GridViewModel = arrayList.get(position)
 
         icons.setImageResource(listItem.icons!!)
         names.text = listItem.name

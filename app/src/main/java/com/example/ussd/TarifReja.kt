@@ -1,31 +1,30 @@
 package com.example.ussd
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
-import com.example.ussd.Fragment_uzmobile.PageType
+import com.example.ussd.Fragment.PageType
 import com.example.ussd.adapters.TabLayoutAdapter
+import com.example.ussd.adapters.TarifRejaAdapter
+import com.example.ussd.model.TarifRejaModel
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_tablayout.*
+import kotlinx.android.synthetic.main.activity_mb_paket_umumiy.*
+import kotlinx.android.synthetic.main.activity_tarif_reja.*
 
-class Tablayout : AppCompatActivity() {
-    lateinit var tabLayout: TabLayout
-    lateinit var toolBar: Toolbar
-    lateinit var viewPager: ViewPager
 
+class TarifReja : AppCompatActivity() {
+    val tarifList = ArrayList<TarifRejaModel>()
+    lateinit var tabLayout_tarif: TabLayout
+    lateinit var viewPager_tarif: ViewPager
     val categories = arrayOf("Kunlik", "Hafalik", "Oylik", "Tungi", "TASIX")
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tablayout)
-        setSupportActionBar(toolbar)
+        setContentView(R.layout.activity_tarif_reja)
+        setSupportActionBar(toolbar_tarif)
 
         supportActionBar?.apply {
-            title = "Mb To'plam"
+            title = "Tarif Rejalar"
 
 
             setDisplayHomeAsUpEnabled(true)
@@ -34,26 +33,23 @@ class Tablayout : AppCompatActivity() {
         val pageType: PageType = intent.getSerializableExtra("dillerType") as PageType
 
 
-
-        toolBar = findViewById(R.id.toolbar)
-        tabLayout = findViewById(R.id.tabLayout)
-        viewPager = findViewById(R.id.viewPager)
+        tabLayout_tarif = findViewById(R.id.tabLayout_tarif)
+        viewPager_tarif = findViewById(R.id.viewPager_tarif)
 
         for (category in categories) {
-            tabLayout.addTab(tabLayout.newTab().setText(category))
+            tabLayout_tarif.addTab(tabLayout_tarif.newTab().setText(category))
 
         }
 
+        tabLayout_tarif.tabGravity = TabLayout.GRAVITY_FILL
+        val tablayoutAdapter =
+            TabLayoutAdapter(this, supportFragmentManager, tabLayout_tarif.tabCount, pageType)
 
-        tabLayout.tabGravity = TabLayout.GRAVITY_FILL
-        val toolbarAdapter =
-            TabLayoutAdapter(this, supportFragmentManager, tabLayout.tabCount, pageType)
-
-        viewPager.adapter = toolbarAdapter
-        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        viewPager_tarif.adapter = tablayoutAdapter
+        viewPager_tarif.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout_tarif))
+        tabLayout_tarif.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                viewPager.currentItem = tab.position
+                viewPager_tarif.currentItem = tab.position
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab) {}
@@ -66,13 +62,13 @@ class Tablayout : AppCompatActivity() {
             PageType.Mobiuz ->
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.mobiuz))
             PageType.Ucell -> {
-//                toolBar.background = ContextCompat.getColor(this, R.color.ucell)
+
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.ucell))
             }
             PageType.Beeline ->
                 tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.beeline))
             PageType.Uzmobile ->
-                tabLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.uzmobile))
+                tabLayout_tarif.setBackgroundColor(ContextCompat.getColor(this, R.color.uzmobile))
         }
 
     }

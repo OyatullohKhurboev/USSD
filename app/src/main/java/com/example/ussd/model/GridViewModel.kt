@@ -1,6 +1,6 @@
 package com.example.ussd.model
 
-class AlphaChar {
+class GridViewModel {
     var icons : Int ? = 0
            var name: String ? = null
 

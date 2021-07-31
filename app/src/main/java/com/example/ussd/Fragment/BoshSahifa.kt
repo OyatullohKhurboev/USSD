@@ -1,4 +1,4 @@
-package com.example.ussd.Fragment_uzmobile
+package com.example.ussd.Fragment
 
 
 import android.content.Intent
@@ -13,10 +13,11 @@ import android.widget.AdapterView
 import android.widget.GridView
 import androidx.core.content.ContextCompat
 import com.example.ussd.R
-import com.example.ussd.Tablayout
+import com.example.ussd.MbPaketUmumiy
+import com.example.ussd.TarifReja
 
 import com.example.ussd.adapters.GridViewAdapter
-import com.example.ussd.model.AlphaChar
+import com.example.ussd.model.GridViewModel
 import com.synnapps.carouselview.ImageListener
 import kotlinx.android.synthetic.main.fragment_bosh_sahifa.*
 
@@ -28,12 +29,12 @@ enum class PageType {
 }
 
 
-class Bosh_sahifa : Fragment(), AdapterView.OnItemClickListener {
+class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
     var pageType: PageType = PageType.Uzmobile
 
 
-    private var arrayList: ArrayList<AlphaChar>? = null
+    private var arrayList: ArrayList<GridViewModel>? = null
     private var gridView: GridView? = null
 
     private var gridViewAdapters: GridViewAdapter? = null
@@ -100,6 +101,8 @@ class Bosh_sahifa : Fragment(), AdapterView.OnItemClickListener {
         gridView?.setOnItemClickListener { parent, view, position, id ->
             when (position) {
                 1 -> goToTablayoutMb()
+                5 -> goToTablayoutTarifReja()
+
             }
 
         }
@@ -158,23 +161,28 @@ class Bosh_sahifa : Fragment(), AdapterView.OnItemClickListener {
     }
 
 
-    private fun setDataList(): ArrayList<AlphaChar> {
+    private fun setDataList(): ArrayList<GridViewModel> {
 
-        val arrayList: ArrayList<AlphaChar> = ArrayList()
+        val arrayList: ArrayList<GridViewModel> = ArrayList()
 
-        arrayList.add(AlphaChar(R.drawable.icon_sms_paket, "SMS To'plamlar"))
-        arrayList.add(AlphaChar(R.drawable.icon_mb_paket, "Internet Paketlar"))
-        arrayList.add(AlphaChar(R.drawable.icon_tarif_reja, "Tarif Rejalar"))
-        arrayList.add(AlphaChar(R.drawable.icon_daqiqa_minut, "Daqiqa Minutlar"))
-        arrayList.add(AlphaChar(R.drawable.icon_ussd_code, "USSD ko'dlar"))
-        arrayList.add(AlphaChar(R.drawable.icon_xizmatlar, "Xizmatlar"))
+        arrayList.add(GridViewModel(R.drawable.icon_sms_paket, "SMS To'plamlar"))
+        arrayList.add(GridViewModel(R.drawable.icon_mb_paket, "Internet Paketlar"))
+        arrayList.add(GridViewModel(R.drawable.icon_tarif_reja, "Tarif Rejalar"))
+        arrayList.add(GridViewModel(R.drawable.icon_daqiqa_minut, "Daqiqa Minutlar"))
+        arrayList.add(GridViewModel(R.drawable.icon_ussd_code, "USSD ko'dlar"))
+        arrayList.add(GridViewModel(R.drawable.icon_xizmatlar, "Xizmatlar"))
         return arrayList
     }
 
 
-
     private fun goToTablayoutMb() {
-        val intent = Intent(context, Tablayout::class.java)
+        val intent = Intent(context, MbPaketUmumiy::class.java)
+        intent.putExtra("dillerType", pageType)
+        activity?.startActivity(intent)
+    }
+
+    private fun goToTablayoutTarifReja() {
+        val intent = Intent(context, TarifReja::class.java)
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)
     }
@@ -184,7 +192,7 @@ class Bosh_sahifa : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var items: AlphaChar = arrayList!!.get(position)
+        var items: GridViewModel = arrayList!!.get(position)
 
     }
 
