@@ -1,6 +1,7 @@
 package com.example.ussd.Fragment
 
 
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -12,10 +13,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
 import androidx.core.content.ContextCompat
-import com.example.ussd.R
-import com.example.ussd.MbPaketActivity
-import com.example.ussd.SmsPaketActivity
-import com.example.ussd.TarifRejaActivity
+import com.airbnb.lottie.LottieAnimationView
+import com.example.ussd.*
 
 import com.example.ussd.adapters.GridViewAdapter
 import com.example.ussd.model.GridViewModel
@@ -33,8 +32,9 @@ enum class PageType {
 class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
     var pageType: PageType = PageType.Uzmobile
+    var isChecked = false
 
-
+    private var loadingDialog: Dialog? = null
     private var arrayList: ArrayList<GridViewModel>? = null
     private var gridView: GridView? = null
 
@@ -51,6 +51,27 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+// lottie animation
+
+        var checkAnim = view.findViewById<LottieAnimationView>(R.id.lottie_animation)
+        checkAnim.setOnClickListener {
+            val intent = Intent(this, BoshSahifa::class.java)
+            startActivity(intent)
+            showLoading()
+            if (isChecked) {
+                checkAnim.speed = -1f
+                checkAnim.playAnimation()
+                isChecked = false
+            } else {
+                checkAnim.speed = 1f
+                checkAnim.playAnimation()
+                isChecked = true
+            }
+
+        }
+// lottie end
+
+
         gridView = view.findViewById(R.id.grid_view)
         arrayList = ArrayList()
         arrayList = setDataList()
@@ -64,6 +85,7 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
                 outlineSpotShadowColor = Color.BLUE
             }
         }
+
         cv_beeline.apply {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -111,6 +133,7 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
             }
 
         }
+
 
 
 
@@ -207,5 +230,13 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
     }
 
+    fun showLoading() {
+        Hideloading()
+        loadingDialog = BaseAnimation.showLoadingAnimation(this)
+    }
+
+    fun Hideloading() {
+        loadingDialog.let { if (it?.isShowing == true) it?.cancel() }
+    }
 
 }
