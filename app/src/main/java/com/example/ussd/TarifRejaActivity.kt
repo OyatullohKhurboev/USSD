@@ -1,19 +1,19 @@
 package com.example.ussd
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.example.ussd.Fragment.PageType
-import com.example.ussd.adapters.TabLayoutAdapter
-import com.example.ussd.adapters.TarifRejaAdapter
+
+import com.example.ussd.TabLayout.TablayoutAdapterTarifReja
 import com.example.ussd.model.TarifRejaModel
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_mb_paket_umumiy.*
 import kotlinx.android.synthetic.main.activity_tarif_reja.*
 
 
-class TarifReja : AppCompatActivity() {
+class TarifRejaActivity : AppCompatActivity() {
     val tarifList = ArrayList<TarifRejaModel>()
     lateinit var tabLayout_tarif: TabLayout
     lateinit var viewPager_tarif: ViewPager
@@ -44,10 +44,14 @@ class TarifReja : AppCompatActivity() {
 
         tabLayout_tarif.tabGravity = TabLayout.GRAVITY_FILL
         val tablayoutAdapter =
-            TabLayoutAdapter(this, supportFragmentManager, tabLayout_tarif.tabCount, pageType)
+            TablayoutAdapterTarifReja(this,
+                supportFragmentManager,
+                tabLayout_tarif.tabCount,
+                pageType)
 
         viewPager_tarif.adapter = tablayoutAdapter
-        viewPager_tarif.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout_tarif))
+        viewPager_tarif.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(
+            tabLayout_tarif))
         tabLayout_tarif.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 viewPager_tarif.currentItem = tab.position
@@ -58,25 +62,29 @@ class TarifReja : AppCompatActivity() {
         })
 
 
-        toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.mobiuz)
+
 
 
         when (pageType) {
             PageType.Mobiuz -> {
-                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.mobiuz)
-                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.mobiuz))
+                tabLayout_tarif.background = ContextCompat.getDrawable(this, R.color.mobiuz)
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
+                    R.color.mobiuz))
             }
             PageType.Ucell -> {
-                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.ucell))
-                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.ucell)
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
+                    R.color.ucell))
+                toolbar_tarif.background = ContextCompat.getDrawable(this, R.color.ucell)
             }
             PageType.Beeline -> {
-                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.beeline))
-                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.beeline)
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
+                    R.color.beeline))
+                toolbar_tarif.background = ContextCompat.getDrawable(this, R.color.beeline)
             }
             PageType.Uzmobile -> {
-                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.uzmobile))
-                toolbar_tarif.background =  ContextCompat.getDrawable(this, R.color.uzmobile)
+                tabLayout_tarif.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
+                    R.color.uzmobile))
+                toolbar_tarif.background = ContextCompat.getDrawable(this, R.color.uzmobile)
             }
         }
 

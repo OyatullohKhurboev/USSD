@@ -15,7 +15,7 @@
         android:background="@drawable/shape_background_recyclerview">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_internet"
+            android:id="@+id/cv_sms"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -23,7 +23,7 @@
             app:cardCornerRadius="10dp">
 
             <TextView
-                android:id="@+id/tv_internet"
+                android:id="@+id/tv_sms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -42,7 +42,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_internet_paket"
+                android:id="@+id/tv_sms_toplam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="500 mb"
@@ -50,7 +50,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/tv_internet_info"
+                android:id="@+id/tv_info_sms"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="2dp"

@@ -13,8 +13,9 @@ import android.widget.AdapterView
 import android.widget.GridView
 import androidx.core.content.ContextCompat
 import com.example.ussd.R
-import com.example.ussd.MbPaketUmumiy
-import com.example.ussd.TarifReja
+import com.example.ussd.MbPaketActivity
+import com.example.ussd.SmsPaketActivity
+import com.example.ussd.TarifRejaActivity
 
 import com.example.ussd.adapters.GridViewAdapter
 import com.example.ussd.model.GridViewModel
@@ -42,7 +43,7 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_bosh_sahifa, container, false)
     }
@@ -100,8 +101,12 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
         imageArray.add(R.drawable.al_chiroq)
         gridView?.setOnItemClickListener { parent, view, position, id ->
             when (position) {
-                1 -> goToTablayoutMb()
-                5 -> goToTablayoutTarifReja()
+                0 -> goToTablayoutSmsToplam()
+
+                1 -> goToTablayoutMbPaket()
+
+                2 -> goToTablayoutTarifReja()
+
 
             }
 
@@ -175,14 +180,20 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
     }
 
 
-    private fun goToTablayoutMb() {
-        val intent = Intent(context, MbPaketUmumiy::class.java)
+    private fun goToTablayoutMbPaket() {
+        val intent = Intent(context, MbPaketActivity::class.java)
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)
     }
 
     private fun goToTablayoutTarifReja() {
-        val intent = Intent(context, TarifReja::class.java)
+        val intent = Intent(context, TarifRejaActivity::class.java)
+        intent.putExtra("dillerType", pageType)
+        activity?.startActivity(intent)
+    }
+
+    private fun goToTablayoutSmsToplam() {
+        val intent = Intent(context, SmsPaketActivity::class.java)
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)
     }

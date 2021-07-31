@@ -10,7 +10,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         Handler().postDelayed({
-            val intent = Intent(this, Umumiy_diller::class.java)
+            val intent = Intent(this, UmumiyDillerActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

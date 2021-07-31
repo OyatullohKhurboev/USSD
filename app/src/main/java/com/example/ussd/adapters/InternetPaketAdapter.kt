@@ -26,8 +26,8 @@ class InternetPaketAdapter(
 
     override fun onBindViewHolder(holder: MbPaketViewHolder, position: Int) {
         val MbPaketList = MbPaketList[position]
-        holder.ivInternet.setText(MbPaketList.name)
-        holder.tvAInternet.setText(MbPaketList.info)
+        holder.tvInternet.setText(MbPaketList.name)
+        holder.tvInfo.setText(MbPaketList.info)
 
         when (pageType) {
             PageType.Ucell -> {
@@ -80,10 +80,11 @@ class InternetPaketAdapter(
     }
 
     class MbPaketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivInternet = itemView.findViewById<TextView>(R.id.ivInternet)
+        val tvInternet = itemView.findViewById<TextView>(R.id.tv_internet)
         val cardViewInternet = itemView.findViewById<CardView>(R.id.cv_internet)
-        val tvAInternet = itemView.findViewById<TextView>(R.id.tvInternet)
-        val tvPaket = itemView.findViewById<TextView>(R.id.tvPaket)
+
+        val tvPaket = itemView.findViewById<TextView>(R.id.tv_internet_paket)
+        val tvInfo = itemView.findViewById<TextView>(R.id.tv_internet_info)
     }
 
 }

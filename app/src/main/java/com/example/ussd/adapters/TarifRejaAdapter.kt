@@ -1,6 +1,7 @@
 package com.example.ussd.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,18 +14,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.R
 import com.example.ussd.model.TarifRejaModel
-
 class TarifRejaAdapter(
     private val context: Context,
     private var tarifList: List<TarifRejaModel>,
-    val pageType: PageType
+    val pageType: PageType,
 ) :
     RecyclerView.Adapter<TarifRejaAdapter.TarifRejaVH>() {
 
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): TarifRejaVH {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.tarif_rejalar, parent, false)
@@ -43,24 +43,36 @@ class TarifRejaAdapter(
         holder.uzbBoyicha.text = tarifList.ozbekistonBoyicha
         holder.daqiqa.text = tarifList.daqiqa
         when (pageType) {
-            PageType.Uzmobile ->
+            PageType.Uzmobile -> {
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))
+//                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context,R.color.mobiuz))
+            }
+            PageType.Beeline -> {
+                holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.beeline))
+            }
+            PageType.Ucell -> {
+                holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.ucell))
+            }
+            PageType.Mobiuz -> {
+                holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.mobiuz))
+            }
         }
 
-}
+    }
 
-override fun getItemCount(): Int {
-    return tarifList.size
-}
+    override fun getItemCount(): Int {
+        return tarifList.size
+    }
 
-class TarifRejaVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val tarifNomi = itemView.findViewById<TextView>(R.id.tv_tarif_nomi)
-    val abonentTolovi = itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
-    val abonentTolovNarxi = itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
-    val chiquvchiOzbkiston = itemView.findViewById<TextView>(R.id.tv_OzbekitonBoyicha)
-    val uzbBoyicha = itemView.findViewById<TextView>(R.id.tv_Boyicha)
-    val daqiqa = itemView.findViewById<TextView>(R.id.tv_daqiqa)
-}
+    class TarifRejaVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tarifNomi = itemView.findViewById<TextView>(R.id.tv_tarif_nomi)
+        val cardView = itemView.findViewById<CardView>(R.id.cv_tarif_reja_linear)
+        val abonentTolovi = itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
+        val abonentTolovNarxi = itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
+        val chiquvchiOzbkiston = itemView.findViewById<TextView>(R.id.tv_OzbekitonBoyicha)
+        val uzbBoyicha = itemView.findViewById<TextView>(R.id.tv_Boyicha)
+        val daqiqa = itemView.findViewById<TextView>(R.id.tv_daqiqa)
+    }
 
 }
 //

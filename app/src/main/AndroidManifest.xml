@@ -14,9 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.USSD">
-        <activity android:name=".TarifReja"></activity>
-        <activity android:name=".MbPaketUmumiy" />
-        <activity android:name=".Umumiy_diller" />
+        <activity android:name=".SmsPaketActivity"></activity>
+        <activity android:name=".TarifRejaActivity" />
+        <activity android:name=".MbPaketActivity" />
+        <activity android:name=".UmumiyDillerActivity" />
         <activity android:name=".SplashScreenActivity">
             // android:theme="@style/NoActionBar"
             <intent-filter>

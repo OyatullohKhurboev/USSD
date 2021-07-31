@@ -48,7 +48,7 @@ class TarifRejaFragment(val type: Int, val pageType: PageType) : Fragment() {
                 "salom",
                 "salom",
                 "salom",
-                "salom",
+                "salom  ",
                 "salom",
                 "salom",
             )

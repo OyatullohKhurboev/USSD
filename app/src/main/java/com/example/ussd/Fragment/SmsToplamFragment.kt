@@ -1,18 +1,17 @@
 package com.example.ussd.Fragment
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.R
 import com.example.ussd.adapters.InternetPaketAdapter
 import com.example.ussd.model.InternetPaketModel
 
-
-class MbPaket(val type: Int, val pageType: PageType) : Fragment() {
+class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
 
     private lateinit var rvInternet: RecyclerView
     private lateinit var adapter: InternetPaketAdapter
@@ -23,7 +22,7 @@ class MbPaket(val type: Int, val pageType: PageType) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_mb_paket, container, false)
+        return inflater.inflate(R.layout.fragment_sms_toplam, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,7 +34,7 @@ class MbPaket(val type: Int, val pageType: PageType) : Fragment() {
         }
 
 
-        rvInternet = view.findViewById(R.id.rvMbPAket)
+        rvInternet = view.findViewById(R.id.rv_sms_toplam)
         rvInternet.layoutManager = LinearLayoutManager(context)
         adapter = InternetPaketAdapter(requireActivity(), InternetList, pageType)
         rvInternet.adapter = adapter

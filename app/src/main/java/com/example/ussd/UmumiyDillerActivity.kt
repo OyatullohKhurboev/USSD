@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.ussd.Fragment.BoshSahifa
 
 
-class Umumiy_diller : AppCompatActivity() {
+class UmumiyDillerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_umumiy_diller)

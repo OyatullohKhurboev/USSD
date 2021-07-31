@@ -6,5 +6,5 @@ data class TarifRejaModel(
     var abonentTolovNArxi: String,
     var chiquvchiOzbekiston: String,
     var ozbekistonBoyicha: String,
-    var daqiqa: String
+    var daqiqa: String,
 )

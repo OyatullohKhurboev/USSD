@@ -7,7 +7,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context=".MbPaketUmumiy">
+    tools:context=".SmsPaketActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_sms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -25,7 +25,7 @@
             app:titleTextColor="@color/white_text" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
+            android:id="@+id/tabLayout_sms"
             app:tabTextAppearance="@style/CardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,6 @@
             android:backgroundTint="@color/background"
             app:tabIndicatorColor="@color/mobiuz"
             app:tabSelectedTextColor="@color/mobiuz"
-
             app:tabTextColor="@color/cardColor">
 
         </com.google.android.material.tabs.TabLayout>
@@ -45,7 +44,7 @@
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/viewPager_sms"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
