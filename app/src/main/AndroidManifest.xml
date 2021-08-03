@@ -14,13 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.USSD">
-        <activity android:name=".UssdKodlarActivity"></activity>
-        <activity android:name=".SmsToplamActivity" />
-        <activity android:name=".TarifRejaActivity" />
-        <activity android:name=".MbPaketActivity" />
-        <activity android:name=".UmumiyDillerActivity" />
-        <activity android:name=".SplashScreenActivity">
-            // android:theme="@style/NoActionBar"
+        <activity android:name=".UssdKodlarActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".SmsToplamActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TarifRejaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MbPaketActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UmumiyDillerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashScreenActivity"
+            android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
