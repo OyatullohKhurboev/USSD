@@ -13,10 +13,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.R
+import com.example.ussd.model.TarifRejaInfoModel
 import com.example.ussd.model.TarifRejaModel
 class TarifRejaAdapter(
     private val context: Context,
-    private var tarifList: List<TarifRejaModel>,
+    private var tarifList: List<TarifRejaInfoModel>,
     val pageType: PageType,
 ) :
     RecyclerView.Adapter<TarifRejaAdapter.TarifRejaVH>() {
@@ -31,17 +32,22 @@ class TarifRejaAdapter(
         return TarifRejaVH(view)
     }
 
+    fun reloadData(tarifs: List<TarifRejaInfoModel>) {
+        tarifList = tarifs
+        notifyDataSetChanged()
+    }
+
 
     override fun onBindViewHolder(holder: TarifRejaVH, position: Int) {
         val tarifList = tarifList[position]
 
 
-        holder.tarifNomi.text = tarifList.tarifNomi
-        holder.abonentTolovi.text = tarifList.abonentTolovi
-        holder.abonentTolovNarxi.text = tarifList.abonentTolovNArxi
-        holder.chiquvchiOzbkiston.text = tarifList.chiquvchiOzbekiston
-        holder.uzbBoyicha.text = tarifList.ozbekistonBoyicha
-        holder.daqiqa.text = tarifList.daqiqa
+        holder.tarifNomi.text = tarifList.tarif_nomi
+        holder.abonentTolovi.text = tarifList.abonet_tolovi
+        holder.abonentTolovNarxi.text = tarifList.abonet_tolovi
+        holder.chiquvchiOzbkiston.text = tarifList.chiquvchi_ozbekiston
+        holder.uzbBoyicha.text = tarifList.ozbekiston_boyicha
+        holder.daqiqa.text = "123"
         when (pageType) {
             PageType.Uzmobile -> {
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))

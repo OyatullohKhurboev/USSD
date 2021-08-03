@@ -1,6 +1,6 @@
 package com.example.ussd.model
 
-data class InternetPaketModel(
+data class Data(
     val name: String,
-    val info: String
+    val price: String
 )
