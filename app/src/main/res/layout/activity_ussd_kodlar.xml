@@ -16,26 +16,14 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_sms"
+            android:id="@+id/toolbar_ussd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+
             android:background="@color/uzmobile"
             app:navigationIcon="@drawable/toolbar_icon"
             app:titleTextColor="@color/white_text" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout_sms"
-            app:tabTextAppearance="@style/CardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="@color/background"
-            app:tabIndicatorColor="@color/mobiuz"
-            app:tabSelectedTextColor="@color/mobiuz"
-            app:tabTextColor="@color/cardColor">
-
-        </com.google.android.material.tabs.TabLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -44,7 +32,7 @@
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager_sms"
+        android:id="@+id/viewPager_ussd"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"

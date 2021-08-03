@@ -1,10 +1,11 @@
 package com.example.ussd
 
 import android.app.Dialog
+import android.content.Context
 import com.example.ussd.Fragment.BoshSahifa
 
 object BaseAnimation {
-    fun showLoadingAnimation(context: BoshSahifa): Dialog {
+    fun showLoadingAnimation(context: Context): Dialog {
 
         val loadingDialog = Dialog(context)
 

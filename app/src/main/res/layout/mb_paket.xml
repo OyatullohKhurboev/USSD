@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="500 mb"
+                android:textStyle="normal"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
@@ -46,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="500 mb"
+                android:textStyle="normal"
                 android:textColor="@color/uzmobile"
                 android:textSize="20sp" />
 
@@ -54,6 +56,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="2dp"
+                android:textSize="13sp"
+                android:textStyle="normal"
                 android:layout_weight="1"
                 android:text="Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#." />
 

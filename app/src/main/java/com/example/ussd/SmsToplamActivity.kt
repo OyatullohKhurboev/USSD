@@ -7,10 +7,9 @@ import androidx.viewpager.widget.ViewPager
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.TabLayout.TablayoutAdapterSmsToplam
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.activity_mb_paket_.*
 import kotlinx.android.synthetic.main.activity_sms_paket.*
 
-class SmsPaketActivity : AppCompatActivity() {
+class SmsToplamActivity : AppCompatActivity() {
 
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
@@ -20,7 +19,7 @@ class SmsPaketActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sms_paket)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar_sms)
 
         supportActionBar?.apply {
             title = "SMS To'plam"

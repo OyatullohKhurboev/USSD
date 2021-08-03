@@ -15,7 +15,7 @@ class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
 
     private lateinit var rvInternet: RecyclerView
     private lateinit var adapter: InternetPaketAdapter
-    private var InternetList = ArrayList<InternetPaketModel>()
+    private var SmsList = ArrayList<InternetPaketModel>()
 
 
     override fun onCreateView(
@@ -36,7 +36,7 @@ class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
 
         rvInternet = view.findViewById(R.id.rv_sms_toplam)
         rvInternet.layoutManager = LinearLayoutManager(context)
-        adapter = InternetPaketAdapter(requireActivity(), InternetList, pageType)
+        adapter = InternetPaketAdapter(requireActivity(), SmsList, pageType)
         rvInternet.adapter = adapter
     }
 
@@ -46,19 +46,19 @@ class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet1)
+        SmsList.add(Internet1)
         val Internet2 = InternetPaketModel(
             "SpiderMan",
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet2)
+        SmsList.add(Internet2)
         val Internet3 = InternetPaketModel(
             "1500 mb",
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet3)
+        SmsList.add(Internet3)
 
     }
 
@@ -68,19 +68,19 @@ class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet1)
+        SmsList.add(Internet1)
         val Internet2 = InternetPaketModel(
             "1500 mb",
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet2)
+        SmsList.add(Internet2)
         val Internet3 = InternetPaketModel(
             "1500 mb",
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet3)
+        SmsList.add(Internet3)
 
     }
 
@@ -90,19 +90,19 @@ class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet1)
+        SmsList.add(Internet1)
         val Internet2 = InternetPaketModel(
             "1500 mb",
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet2)
+        SmsList.add(Internet2)
         val Internet3 = InternetPaketModel(
             "1500 mb",
 
             "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
         )
-        InternetList.add(Internet3)
+        SmsList.add(Internet3)
 
 
     }

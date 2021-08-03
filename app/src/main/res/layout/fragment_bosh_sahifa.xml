@@ -25,6 +25,8 @@
                 android:id="@+id/cv_ucell"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
                 android:background="@color/white"

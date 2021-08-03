@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
 import androidx.core.content.ContextCompat
-import com.airbnb.lottie.LottieAnimationView
 import com.example.ussd.*
 
 import com.example.ussd.adapters.GridViewAdapter
@@ -52,23 +51,23 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 // lottie animation
-
-        var checkAnim = view.findViewById<LottieAnimationView>(R.id.lottie_animation)
-        checkAnim.setOnClickListener {
-            val intent = Intent(this, BoshSahifa::class.java)
-            startActivity(intent)
-            showLoading()
-            if (isChecked) {
-                checkAnim.speed = -1f
-                checkAnim.playAnimation()
-                isChecked = false
-            } else {
-                checkAnim.speed = 1f
-                checkAnim.playAnimation()
-                isChecked = true
-            }
-
-        }
+//
+//        var checkAnim = view.findViewById < LottieAnimationView >(R.id.lottie_animation)
+//        checkAnim.setOnClickListener {
+//            val intent = Intent(context, BoshSahifa::class.java)
+//            startActivity(intent)
+//            showLoading()
+//            if (isChecked) {
+//                checkAnim.speed = -1f
+//                checkAnim.playAnimation()
+//                isChecked = false
+//            } else {
+//                checkAnim.speed = 1f
+//                checkAnim.playAnimation()
+//                isChecked = true
+//            }
+//
+//        }
 // lottie end
 
 
@@ -128,6 +127,8 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
                 1 -> goToTablayoutMbPaket()
 
                 2 -> goToTablayoutTarifReja()
+
+                4 -> goToTablayoutUssdKodlar()
 
 
             }
@@ -209,6 +210,12 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
         activity?.startActivity(intent)
     }
 
+    private fun goToTablayoutUssdKodlar() {
+        val intent = Intent(context, UssdKodlarActivity::class.java)
+        intent.putExtra("dillerType", pageType)
+        activity?.startActivity(intent)
+    }
+
     private fun goToTablayoutTarifReja() {
         val intent = Intent(context, TarifRejaActivity::class.java)
         intent.putExtra("dillerType", pageType)
@@ -216,7 +223,7 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
     }
 
     private fun goToTablayoutSmsToplam() {
-        val intent = Intent(context, SmsPaketActivity::class.java)
+        val intent = Intent(context, SmsToplamActivity::class.java)
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)
     }
@@ -230,13 +237,14 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
     }
 
-    fun showLoading() {
-        Hideloading()
-        loadingDialog = BaseAnimation.showLoadingAnimation(this)
-    }
-
-    fun Hideloading() {
-        loadingDialog.let { if (it?.isShowing == true) it?.cancel() }
-    }
+//
+//    fun showLoading() {
+//        Hideloading()
+//        loadingDialog = BaseAnimation.showLoadingAnimation(requireContext())
+//    }
+//
+//    fun Hideloading() {
+//        loadingDialog.let { if (it?.isShowing == true) it?.cancel() }
+//    }
 
 }
