@@ -6,33 +6,28 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.Fragment.TarifRejaFragment
+import com.example.ussd.model.TariffsCategoriesModel
 
-internal class TablayoutAdapterTarifReja(
+class TablayoutAdapterTarifReja(
     var context: Context,
     fm: FragmentManager,
     var totalTabs: Int,
-    val pageType: PageType
+    val pageType: PageType,
+    var categories: Array<String>,
 ) :
     FragmentPagerAdapter(fm) {
     override fun getCount(): Int {
         return totalTabs
     }
 
+    fun addCategories(c: Array<String>) {
+        categories = c
+    }
+
     override fun getItem(position: Int): Fragment {
 
-               return when (position) {
-            0 -> {
-                TarifRejaFragment(0, pageType)
-            }
-            1 -> {
-                TarifRejaFragment(1, pageType)
-            }
-            2 -> {
-                TarifRejaFragment(2, pageType)
-            }
-            else -> TarifRejaFragment(0, pageType)
-        }
-   }
-
+        return TarifRejaFragment(categories[position], pageType)
     }
+}
+
 

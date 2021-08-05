@@ -10,6 +10,7 @@ data class TarifRejaInfoModel (
     val abonet_tolovi: String,
     val chiquvchi_ozbekiston: String,
     val ozbekiston_boyicha: String,
-    val internet_paket: String
+    val internet_paket: String,
+    val type: String
 
     )

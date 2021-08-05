@@ -17,7 +17,7 @@ import com.example.ussd.model.TarifRejaInfoModel
 import com.example.ussd.model.TarifRejaResponseModel
 import com.google.gson.Gson
 
-class TarifRejaFragment(val type: Int, val pageType: PageType) : Fragment() {
+class TarifRejaFragment(val type: String, val pageType: PageType) : Fragment() {
 
     private lateinit var rvTarif: RecyclerView
     private lateinit var adapter: TarifRejaAdapter
@@ -34,11 +34,7 @@ class TarifRejaFragment(val type: Int, val pageType: PageType) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         callApiToGetInfoAboutTariffs()
-//        when (type) {
-//            0 -> tarifNomi()
-//            1 -> abonentTolovi()
-//            else -> tarifNomi()
-//        }
+
 
 
         rvTarif = view.findViewById(R.id.rv_tarif_reja)
@@ -51,12 +47,16 @@ class TarifRejaFragment(val type: Int, val pageType: PageType) : Fragment() {
 
         val queue =   Volley.newRequestQueue(context)
 
-        val url = "https://run.mocky.io/v3/1ac13523-0433-472a-ba21-434d83c1bb44"
-
+        val url = "https://run.mocky.io/v3/50e750c2-d35f-4459-b7b0-66a3725fabeb"
+        tarifList = ArrayList<TarifRejaInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->
                 val model = Gson().fromJson(result, TarifRejaResponseModel::class.java)
-                tarifList = model.data
+                for(data in model.data) {
+                    if (data.type == type)
+                        tarifList.add(data)
+                }
+
                 adapter.reloadData(tarifList)
 //                Toast.makeText(context, model.data[0].abonet_tolovi, Toast.LENGTH_LONG).show()
             }, Response.ErrorListener { error ->
