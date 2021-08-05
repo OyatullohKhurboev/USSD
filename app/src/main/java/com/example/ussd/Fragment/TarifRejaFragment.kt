@@ -67,31 +67,4 @@ class TarifRejaFragment(val type: String, val pageType: PageType) : Fragment() {
 
     }
 
-//    private fun abonentTolovi() {
-//        tarifList.add(
-//            TarifRejaModel(
-//                "salom",
-//                "salom",
-//                "salom",
-//                "salom  ",
-//                "salom",
-//                "salom",
-//            )
-//        )
-//
-//    }
-//
-//    private fun tarifNomi() {
-//        tarifList.add(
-//            TarifRejaModel(
-//                "salom",
-//                "salom",
-//                "salom",
-//                "salom",
-//                "salom",
-//                "salom",
-//            )
-//        )
-//
-//    }
 }

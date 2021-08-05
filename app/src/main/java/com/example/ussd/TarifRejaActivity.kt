@@ -39,7 +39,7 @@ class TarifRejaActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
-      pageType = intent.getSerializableExtra("dillerType") as PageType
+        pageType = intent.getSerializableExtra("dillerType") as PageType
 
 
 

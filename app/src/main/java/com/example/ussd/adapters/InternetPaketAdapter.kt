@@ -10,11 +10,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.R
-import com.example.ussd.model.InternetPaketModel
+import com.example.ussd.model.MbPaketInfoModel
 
 class InternetPaketAdapter(
     private val context: Context,
-    private var MbPaketList: List<InternetPaketModel>,
+    private var MbPaketList: ArrayList<MbPaketInfoModel>,
     val pageType: PageType,
 ) :
     RecyclerView.Adapter<InternetPaketAdapter.MbPaketViewHolder>() {
@@ -24,9 +24,14 @@ class InternetPaketAdapter(
         return MbPaketViewHolder(view)
     }
 
+
+    fun reloadData(mbPaket: ArrayList<MbPaketInfoModel>) {
+        MbPaketList = mbPaket
+        notifyDataSetChanged()
+    }
     override fun onBindViewHolder(holder: MbPaketViewHolder, position: Int) {
         val MbPaketList = MbPaketList[position]
-        holder.tvInternet.setText(MbPaketList.name)
+        holder.tvInternet.setText(MbPaketList.paket_nomi)
         holder.tvInfo.setText(MbPaketList.info)
 
         when (pageType) {

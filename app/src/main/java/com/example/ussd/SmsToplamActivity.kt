@@ -30,8 +30,6 @@ class SmsToplamActivity : AppCompatActivity() {
         val pageType: PageType = intent.getSerializableExtra("dillerType") as PageType
 
 
-
-
         tabLayout = findViewById(R.id.tabLayout_sms)
         viewPager = findViewById(R.id.viewPager_sms)
 
