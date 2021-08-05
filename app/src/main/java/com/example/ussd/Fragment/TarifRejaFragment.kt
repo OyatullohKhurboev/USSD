@@ -1,6 +1,4 @@
 package com.example.ussd.Fragment
-
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +14,6 @@ import com.android.volley.toolbox.Volley
 import com.example.ussd.R
 import com.example.ussd.adapters.TarifRejaAdapter
 import com.example.ussd.model.TarifRejaInfoModel
-import com.example.ussd.model.TarifRejaModel
 import com.example.ussd.model.TarifRejaResponseModel
 import com.google.gson.Gson
 
@@ -52,7 +49,7 @@ class TarifRejaFragment(val type: Int, val pageType: PageType) : Fragment() {
 
     private fun callApiToGetInfoAboutTariffs() {
 
-        val queue = Volley.newRequestQueue(context)
+        val queue =   Volley.newRequestQueue(context)
 
         val url = "https://run.mocky.io/v3/1ac13523-0433-472a-ba21-434d83c1bb44"
 

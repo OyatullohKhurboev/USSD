@@ -11,4 +11,5 @@ data class TarifRejaInfoModel (
     val chiquvchi_ozbekiston: String,
     val ozbekiston_boyicha: String,
     val internet_paket: String
+
     )
