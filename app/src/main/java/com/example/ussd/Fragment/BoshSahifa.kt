@@ -130,64 +130,60 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
                 4 -> goToTablayoutUssdKodlar()
 
+            }
+        }
+
+
+                carouselView.pageCount = imageArray.size
+                        carouselView . setImageListener (imageListener)
+
+
+                        cv_ucell . setOnClickListener {
+                    pageType = PageType.Ucell
+                    gridViewAdapters?.updateColor(R.color.ucell)
+                    cv_top_mb.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.ucell
+                        )
+                    )
+                }
+
+                        cv_beeline . setOnClickListener {
+                    pageType = PageType.Beeline
+                    gridViewAdapters?.updateColor(R.color.beeline)
+                    cv_top_mb.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.beeline
+                        )
+                    )
+                }
+
+                        cv_uzmobile . setOnClickListener {
+                    pageType = PageType.Uzmobile
+                    gridViewAdapters?.updateColor(R.color.uzmobile)
+                    imageArray.add(R.drawable.uzmobile_logo)
+                    cv_top_mb.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.uzmobile
+                        )
+                    )
+                }
+
+                        cv_mobiuz . setOnClickListener {
+                    pageType = PageType.Mobiuz
+                    gridViewAdapters?.updateColor(R.color.mobiuz)
+                    cv_top_mb.setCardBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.mobiuz
+                        )
+                    )
+                }
 
             }
-
-        }
-
-
-
-
-        carouselView.pageCount = imageArray.size
-        carouselView.setImageListener(imageListener)
-
-
-        cv_ucell.setOnClickListener {
-            pageType = PageType.Ucell
-            gridViewAdapters?.updateColor(R.color.ucell)
-            cv_top_mb.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.ucell
-                )
-            )
-        }
-
-        cv_beeline.setOnClickListener {
-            pageType = PageType.Beeline
-            gridViewAdapters?.updateColor(R.color.beeline)
-            cv_top_mb.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.beeline
-                )
-            )
-        }
-
-        cv_uzmobile.setOnClickListener {
-            pageType = PageType.Uzmobile
-            gridViewAdapters?.updateColor(R.color.uzmobile)
-            imageArray.add(R.drawable.uzmobile_logo)
-            cv_top_mb.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.uzmobile
-                )
-            )
-        }
-
-        cv_mobiuz.setOnClickListener {
-            pageType = PageType.Mobiuz
-            gridViewAdapters?.updateColor(R.color.mobiuz)
-            cv_top_mb.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.mobiuz
-                )
-            )
-        }
-
-    }
 
 
     private fun setDataList(): ArrayList<GridViewModel> {

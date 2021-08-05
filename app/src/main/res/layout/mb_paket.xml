@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             app:cardBackgroundColor="@color/uzmobile"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="15dp">
 
             <TextView
                 android:id="@+id/tv_internet"

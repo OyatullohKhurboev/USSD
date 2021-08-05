@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -12,9 +13,7 @@
         android:layout_margin="25dp"
         android:layout_gravity="center"
         app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-     >
-
+        app:cardElevation="10dp">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie_animation"
@@ -24,7 +23,6 @@
 
             app:lottie_fileName="loading.json"
             app:lottie_loop="true" />
-
 
     </androidx.cardview.widget.CardView>
 
