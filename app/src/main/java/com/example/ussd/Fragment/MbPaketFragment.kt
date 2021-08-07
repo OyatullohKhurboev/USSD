@@ -42,6 +42,7 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
         rvInternet.layoutManager = LinearLayoutManager(context)
         adapter = InternetPaketAdapter(requireActivity(), internetList, pageType)
         rvInternet.adapter = adapter
+        callApiToGetInfoAboutTariffs()
     }
 
     private fun callApiToGetInfoAboutTariffs() {

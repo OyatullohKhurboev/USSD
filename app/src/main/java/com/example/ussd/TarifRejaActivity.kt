@@ -34,8 +34,6 @@ class TarifRejaActivity : AppCompatActivity() {
 
         supportActionBar?.apply {
             title = "Tarif Rejalar"
-
-
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }

@@ -31,7 +31,6 @@ class MbPaketActivity : AppCompatActivity() {
 
         supportActionBar?.apply {
             title = "Mb To'plam"
-
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
@@ -51,27 +50,25 @@ class MbPaketActivity : AppCompatActivity() {
 
         when (pageType) {
             PageType.Mobiuz -> {
+
+                tabLayout.background = ContextCompat.getDrawable(this, R.color.mobiuz)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.mobiuz))
-                toolbar.background = ContextCompat.getDrawable(this, R.color.mobiuz)
 
             }
             PageType.Ucell -> {
-                toolbar.background = ContextCompat.getDrawable(this, R.color.ucell)
+                tabLayout.background = ContextCompat.getDrawable(this, R.color.ucell)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.ucell))
 
             }
             PageType.Beeline -> {
-                toolbar.background = ContextCompat.getDrawable(this, R.color.beeline)
-
-
+                tabLayout.background = ContextCompat.getDrawable(this, R.color.beeline)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.beeline))
             }
             PageType.Uzmobile -> {
-                toolbar.background = ContextCompat.getDrawable(this, R.color.uzmobile)
-
+                tabLayout.background = ContextCompat.getDrawable(this, R.color.uzmobile)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.uzmobile))
             }
@@ -121,6 +118,8 @@ class MbPaketActivity : AppCompatActivity() {
         queue.add(request)
 
     }
+
+
 
 
     override fun onSupportNavigateUp(): Boolean {
