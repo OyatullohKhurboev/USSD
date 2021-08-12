@@ -14,6 +14,7 @@ import com.example.ussd.model.TariffsCategoriesModel
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_mb_paket_.*
+import kotlinx.android.synthetic.main.activity_mb_paket_.view.*
 
 
 class MbPaketActivity : AppCompatActivity() {
@@ -50,30 +51,34 @@ class MbPaketActivity : AppCompatActivity() {
 
         when (pageType) {
             PageType.Mobiuz -> {
-
+                toolbar.background = ContextCompat.getDrawable(this, R.color.mobiuz)
                 tabLayout.background = ContextCompat.getDrawable(this, R.color.mobiuz)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.mobiuz))
 
             }
             PageType.Ucell -> {
+                toolbar.background = ContextCompat.getDrawable(this, R.color.ucell)
                 tabLayout.background = ContextCompat.getDrawable(this, R.color.ucell)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.ucell))
 
             }
             PageType.Beeline -> {
+                toolbar.background = ContextCompat.getDrawable(this, R.color.beeline)
                 tabLayout.background = ContextCompat.getDrawable(this, R.color.beeline)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.beeline))
             }
             PageType.Uzmobile -> {
+                toolbar.background = ContextCompat.getDrawable(this, R.color.uzmobile)
                 tabLayout.background = ContextCompat.getDrawable(this, R.color.uzmobile)
                 tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this,
                     R.color.uzmobile))
             }
         }
     }
+
     fun addCategoriesToTab() {
         for (category in categories) {
             tabLayout.addTab(tabLayout.newTab().setText(category))
@@ -82,7 +87,11 @@ class MbPaketActivity : AppCompatActivity() {
 
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val toolbarAdapter =
-            TabLayoutAdapterMbPaket(this, supportFragmentManager, tabLayout.tabCount, pageType, categories)
+            TabLayoutAdapterMbPaket(this,
+                supportFragmentManager,
+                tabLayout.tabCount,
+                pageType,
+                categories)
 
         viewPager.adapter = toolbarAdapter
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
@@ -94,7 +103,6 @@ class MbPaketActivity : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
-
 
 
     }
@@ -118,8 +126,6 @@ class MbPaketActivity : AppCompatActivity() {
         queue.add(request)
 
     }
-
-
 
 
     override fun onSupportNavigateUp(): Boolean {

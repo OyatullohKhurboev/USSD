@@ -5,109 +5,67 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.ussd.R
 import com.example.ussd.adapters.InternetPaketAdapter
 import com.example.ussd.adapters.SmsToplamAdapter
-import com.example.ussd.model.InternetPaketModel
-import com.example.ussd.model.MbPaketInfoModel
-import com.example.ussd.model.SmsToplamModel
+import com.example.ussd.model.*
+import com.google.gson.Gson
 
-class SmsToplamFragment(val type: Int, val pageType: PageType) : Fragment() {
+class SmsToplamFragment(val type: String, val pageType: PageType) : Fragment() {
 
-    private lateinit var rvInternet: RecyclerView
-    private lateinit var adapter: InternetPaketAdapter
-    private var SmsList = ArrayList<MbPaketInfoModel>()
+
+    private lateinit var rvSms: RecyclerView
+    private lateinit var adapter: SmsToplamAdapter
+    private var smsList = ArrayList<SmsPaketInfoModel>()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_sms_toplam, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        when (type) {
-//            0 -> Name()
-//            1 -> Title()
-//            else -> Info()
-//        }
+        callApiToGetInfoAboutSms()
+
+        rvSms = view.findViewById(R.id.rv_sms_toplam)
+        rvSms.layoutManager = LinearLayoutManager(context)
+        adapter = SmsToplamAdapter(requireContext(), smsList,  pageType)
+        rvSms.adapter = adapter
 
 
-        rvInternet = view.findViewById(R.id.rv_sms_toplam)
-        rvInternet.layoutManager = LinearLayoutManager(context)
-        adapter = InternetPaketAdapter(requireActivity() ,SmsList, pageType)
-        rvInternet.adapter = adapter
+        callApiToGetInfoAboutSms()
     }
-//
-//    private fun Title() {
-//        val Internet1 = InternetPaketModel(
-//            "SpiderMan",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet1)
-//        val Internet2 = InternetPaketModel(
-//            "SpiderMan",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Sms2)
-//        val Internet3 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet3)
-//
-//    }
-//
-//    private fun Info() {
-//        val Internet1 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet1)
-//        val Internet2 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Sms2)
-//        val Internet3 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet3)
-//
-//    }
-//
-//    private fun Name() {
-//        val Internet1 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet1)
-//        val Internet2 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet2)
-//        val Internet3 = InternetPaketModel(
-//            "1500 mb",
-//
-//            "Narxi 420 so'm.\nAmal qilish muddati 30 kun.\nFaollashtirish: *111*2*1*1#."
-//        )
-//        SmsList.add(Internet3)
-//
-//
-//    }
 
+    private fun callApiToGetInfoAboutSms() {
+
+        val queue = Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/956a206f-979e-4128-92ab-5fde7215987b"
+        smsList = ArrayList<SmsPaketInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, SmsPaketResponseModel::class.java)
+                for (data in model.data) {
+                    if (data.type == type)
+                        smsList.add(data)
+                }
+
+                adapter.reloadData(smsList)
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
 }

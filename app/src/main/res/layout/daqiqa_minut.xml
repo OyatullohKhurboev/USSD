@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_background_recyclerview">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            app:cardBackgroundColor="@color/ucell"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/tv_daq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="120daq"
+                android:textColor="@color/white_text"
+                android:textSize="23sp"
+                android:textStyle="normal" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp">
+
+                <TextView
+
+                    android:id="@+id/tv_narx_daq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="narxi"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_daq_som"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="10000 som"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_muddat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_narx_daq"
+
+                    android:text="Muddati"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_faollashtirish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_muddat"
+                    android:text="Faollashtirish:"
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_kun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_daq_som"
+                    android:layout_alignParentRight="true"
+                    android:text="140 daq "
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+
+
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/tv_kod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_muddat"
+                    android:layout_alignParentRight="true"
+                    android:text="140 daq "
+                    android:textColor="@color/cardColor"
+                    android:textSize="13sp"
+
+
+                    android:textStyle="normal" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

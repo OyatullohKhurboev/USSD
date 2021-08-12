@@ -26,6 +26,7 @@ class TabLayoutAdapterMbPaket(
     }
 
     override fun getItem(position: Int): Fragment {
+
         return MbPaketFragment(categories[position], pageType)
     }
 }

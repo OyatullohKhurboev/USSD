@@ -29,9 +29,11 @@ class InternetPaketAdapter(
         MbPaketList = mbPaket
         notifyDataSetChanged()
     }
+
     override fun onBindViewHolder(holder: MbPaketViewHolder, position: Int) {
         val MbPaketList = MbPaketList[position]
         holder.tvInternet.setText(MbPaketList.paket_nomi)
+        holder.tvPaket.setText(MbPaketList.paket_nomi)
         holder.tvInfo.setText(MbPaketList.info)
 
         when (pageType) {

@@ -10,11 +10,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.R
+import com.example.ussd.model.MbPaketInfoModel
+import com.example.ussd.model.UssdInfoModel
 import com.example.ussd.model.UssdKodlarModel
 
 class UssdKodlarAdapter(
     private val context: Context,
-    private var UssdKodList: ArrayList<UssdKodlarModel>,
+    private var UssdKodList: ArrayList<UssdInfoModel>,
     val pageType: PageType,
 ) :
     RecyclerView.Adapter<UssdKodlarAdapter.UssdKodlarVH>() {
@@ -23,6 +25,10 @@ class UssdKodlarAdapter(
     {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.ussd_kodlar, parent, false)
         return UssdKodlarVH(view)
+    }
+    fun reloadData(ussd: ArrayList<UssdInfoModel>) {
+        UssdKodList = ussd
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: UssdKodlarVH, position: Int) {

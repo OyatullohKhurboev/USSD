@@ -1,7 +1,7 @@
 package com.example.ussd.model
 
 data class MbPaketResponseModel(
-    val `data`: List<MbPaketInfoModel>,
+    val data: List<MbPaketInfoModel>,
     val succes: Boolean
 )
 data class MbPaketInfoModel(

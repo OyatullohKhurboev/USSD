@@ -15,6 +15,7 @@ import com.example.ussd.Fragment.PageType
 import com.example.ussd.R
 import com.example.ussd.model.TarifRejaInfoModel
 import com.example.ussd.model.TarifRejaModel
+
 class TarifRejaAdapter(
     private val context: Context,
     private var tarifList: List<TarifRejaInfoModel>,

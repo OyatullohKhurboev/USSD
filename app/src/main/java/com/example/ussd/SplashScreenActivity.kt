@@ -13,6 +13,6 @@ class SplashScreenActivity : AppCompatActivity() {
             val intent = Intent(this, UmumiyDillerActivity::class.java)
             startActivity(intent)
             finish()
-        }, 3000)
+        }, 1000)
     }
 }

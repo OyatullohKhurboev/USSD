@@ -1,12 +1,11 @@
 package com.example.ussd.TabLayout
 
-import android.content.Context
+import   android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.Fragment.TarifRejaFragment
-import com.example.ussd.model.TariffsCategoriesModel
 
 class TablayoutAdapterTarifReja(
     var context: Context,

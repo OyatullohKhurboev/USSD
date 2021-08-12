@@ -28,39 +28,38 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_mb_paket, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        callApiToGetInfoAboutMb()
 
 
         rvInternet = view.findViewById(R.id.rvMbPAket)
         rvInternet.layoutManager = LinearLayoutManager(context)
         adapter = InternetPaketAdapter(requireActivity(), internetList, pageType)
         rvInternet.adapter = adapter
-        callApiToGetInfoAboutTariffs()
+        callApiToGetInfoAboutMb()
     }
 
-    private fun callApiToGetInfoAboutTariffs() {
+    private fun callApiToGetInfoAboutMb() {
 
-        val queue =   Volley.newRequestQueue(context)
+        val queue = Volley.newRequestQueue(context)
 
         val url = "https://run.mocky.io/v3/ed409846-af25-4067-bdd4-82b130448f45"
         internetList = ArrayList<MbPaketInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->
                 val model = Gson().fromJson(result, MbPaketResponseModel::class.java)
-                for(data in model.data) {
+                for (data in model.data) {
                     if (data.type == type)
                         internetList.add(data)
                 }
 
                 adapter.reloadData(internetList)
-//                Toast.makeText(context, model.data[0].abonet_tolovi, Toast.LENGTH_LONG).show()
             }, Response.ErrorListener { error ->
                 Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
             }) {}

@@ -10,17 +10,20 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ussd.Fragment.PageType
 import com.example.ussd.R
-
-import com.example.ussd.model.SmsToplamModel
+import com.example.ussd.model.MbPaketInfoModel
+import com.example.ussd.model.SmsPaketInfoModel
 
 
 class SmsToplamAdapter(
     private val context: Context,
-    private var SmsPaketList: List<SmsToplamModel>,
+    private var SmsPaketList: ArrayList<SmsPaketInfoModel>,
     val pageType: PageType,
 ) :
     RecyclerView.Adapter<SmsToplamAdapter.SmsPaketVh>() {
-
+    fun reloadData(smsPaket: ArrayList<SmsPaketInfoModel>) {
+        SmsPaketList = smsPaket
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SmsPaketVh {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.sms_paket, parent, false)
         return SmsPaketVh(view)
@@ -28,8 +31,9 @@ class SmsToplamAdapter(
 
     override fun onBindViewHolder(holder: SmsPaketVh, position: Int) {
         val SmsPaketList = SmsPaketList[position]
-        holder.tvSms.setText(SmsPaketList.name)
-        holder.tvInfo.setText(SmsPaketList.info)
+        holder.tvSms.text = SmsPaketList.paket_nomi
+        holder.tvToplam.text = SmsPaketList.paket_nomi
+        holder.tvInfo.text = SmsPaketList.info
 
         when (pageType) {
             PageType.Ucell -> {
@@ -84,7 +88,6 @@ class SmsToplamAdapter(
     class SmsPaketVh(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvSms = itemView.findViewById<TextView>(R.id.tv_sms)
         val cardViewSms = itemView.findViewById<CardView>(R.id.cv_sms)
-
         val tvToplam = itemView.findViewById<TextView>(R.id.tv_sms_toplam)
         val tvInfo = itemView.findViewById<TextView>(R.id.tv_info_sms)
     }
