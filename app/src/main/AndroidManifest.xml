@@ -13,7 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.USSD">
-        <activity android:name=".ServicesActivity"></activity>
+        <activity
+            android:name=".DaqiqaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".XizmatlarActivity"
+            android:exported="true" />
+        <activity android:name=".ServiceActivity" />
         <activity
             android:name=".UssdKodlarActivity"
             android:screenOrientation="portrait" />

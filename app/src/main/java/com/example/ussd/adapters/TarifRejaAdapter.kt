@@ -48,19 +48,40 @@ class TarifRejaAdapter(
         holder.abonentTolovNarxi.text = tarifList.abonet_tolovi
         holder.chiquvchiOzbkiston.text = tarifList.chiquvchi_ozbekiston
         holder.uzbBoyicha.text = tarifList.ozbekiston_boyicha
-        holder.daqiqa.text = "123"
+        holder.daqiqa.text = tarifList.internet_paket
         when (pageType) {
             PageType.Uzmobile -> {
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))
-//                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context,R.color.mobiuz))
+                holder.cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.uzmobile
+                    ))
+
             }
             PageType.Beeline -> {
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.beeline))
+                holder.cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.beeline
+                    ))
+
             }
             PageType.Ucell -> {
+                holder.cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.ucell
+                    ))
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.ucell))
             }
             PageType.Mobiuz -> {
+                holder.cardView.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.mobiuz
+                    ))
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.mobiuz))
             }
         }

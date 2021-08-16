@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_narx_daq"
 
-                    android:text="Muddati"
+                    android:text="Muddat"
                     android:textColor="@color/cardColor"
                     android:textSize="13sp"
                     android:textStyle="normal" />

@@ -1,12 +1,11 @@
 package com.example.ussd.model
 
 data class UssdResponseModel(
-    val `data`: List<UssdInfoModel>,
+    val data: ArrayList<UssdInfoModel>,
     val succes: Boolean
 )
 data class UssdInfoModel(
 
     val name: String,
-    val info: String,
-    val type: String
-)
+    val info: String
+    )

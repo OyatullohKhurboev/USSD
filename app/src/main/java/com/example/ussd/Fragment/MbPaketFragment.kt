@@ -49,7 +49,7 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
 
         val queue = Volley.newRequestQueue(context)
 
-        val url = "https://run.mocky.io/v3/ed409846-af25-4067-bdd4-82b130448f45"
+        val url = "https://run.mocky.io/v3/af48c1e7-098e-477b-aefe-e635012543b7"
         internetList = ArrayList<MbPaketInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->

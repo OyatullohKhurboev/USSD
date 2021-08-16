@@ -11,66 +11,67 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.ussd.Fragment.PageType
+import com.example.ussd.adapters.ServiceAdapter
 import com.example.ussd.adapters.UssdKodlarAdapter
-import com.example.ussd.model.UssdInfoModel
 import com.example.ussd.model.UssdResponseModel
+import com.example.ussd.model.XizmatlarResponseModel
 import com.google.gson.Gson
-
 import kotlinx.android.synthetic.main.activity_ussd_kodlar.*
+import kotlinx.android.synthetic.main.activity_xizmatlar.*
 
-class UssdKodlarActivity: AppCompatActivity() {
+class XizmatlarActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
 
-    var adapter: UssdKodlarAdapter? = null
+    var adapter: ServiceAdapter? = null
     var pageType: PageType = PageType.Beeline
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ussd_kodlar)
-        setSupportActionBar(toolbar_ussd)
+        setContentView(R.layout.activity_xizmatlar)
+        setSupportActionBar(toolbar_service)
         supportActionBar?.apply {
-            title = "USSD kodlar"
+            title = "Xizmatlar"
 
 
         }
-         pageType = intent.getSerializableExtra("dillerType") as PageType
+        pageType = intent.getSerializableExtra("dillerType") as PageType
 
 
-        recyclerView = findViewById(R.id.rv_ussd)
+        recyclerView = findViewById(R.id.rv_service)
 
 
         when (pageType) {
             PageType.Mobiuz -> {
 
-                toolbar_ussd.background = ContextCompat.getDrawable(this, R.color.mobiuz)
+                toolbar_service.background = ContextCompat.getDrawable(this, R.color.mobiuz)
 
             }
             PageType.Ucell -> {
-                toolbar_ussd.background = ContextCompat.getDrawable(this, R.color.ucell)
+                toolbar_service.background = ContextCompat.getDrawable(this, R.color.ucell)
 
             }
             PageType.Beeline -> {
-                toolbar_ussd.background = ContextCompat.getDrawable(this, R.color.beeline)
+                toolbar_service.background = ContextCompat.getDrawable(this, R.color.beeline)
 
 
             }
             PageType.Uzmobile -> {
-                toolbar_ussd.background = ContextCompat.getDrawable(this, R.color.uzmobile)
-                callApiToGetInfoAboutUssd()
+                toolbar_service.background = ContextCompat.getDrawable(this, R.color.uzmobile)
+                callApiToGetInfoAboutServise()
             }
         }
 
     }
 
-    private fun callApiToGetInfoAboutUssd() {
+    private fun callApiToGetInfoAboutServise() {
 
         val queue = Volley.newRequestQueue(this)
 
-        val url = "https://run.mocky.io/v3/2a1f84e3-a2dc-4254-a7ea-487824a0be81"
+        val url = "https://run.mocky.io/v3/f89abf73-5fdc-4c44-84f1-d675cd8e148b"
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->
-                val model = Gson().fromJson(result, UssdResponseModel::class.java)
-                adapter = UssdKodlarAdapter(this, model.data, pageType)
+                val model = Gson().fromJson(result, XizmatlarResponseModel::class.java)
+                adapter = ServiceAdapter(this, model.data, pageType)
                 recyclerView.layoutManager = LinearLayoutManager(this)
                 recyclerView.adapter = adapter
 //                adapter?.reloadData(model.data)

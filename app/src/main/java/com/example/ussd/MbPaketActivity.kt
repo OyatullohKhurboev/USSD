@@ -1,5 +1,4 @@
 package com.example.ussd
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -111,7 +110,7 @@ class MbPaketActivity : AppCompatActivity() {
     private fun getCategories() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://run.mocky.io/v3/3ab8b47f-ce85-41a7-878f-ab283d253c93"
+        val url = "https://run.mocky.io/v3/b5743fb3-dc5a-4cd9-ae0f-4b0f8a999578"
 
         val request = object : StringRequest(Method.GET, url,
             Response.Listener { result ->

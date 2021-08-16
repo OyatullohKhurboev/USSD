@@ -33,8 +33,8 @@ class UssdKodlarAdapter(
 
     override fun onBindViewHolder(holder: UssdKodlarVH, position: Int) {
         val UssdKodList = UssdKodList[position]
-        holder.tvUssd.setText(UssdKodList.name)
-        holder.tvInfo.setText(UssdKodList.info)
+        holder.tvUssd.text = UssdKodList.name
+        holder.tvInfo.text = UssdKodList.info
 
         when (pageType) {
             PageType.Ucell -> {
@@ -86,7 +86,6 @@ class UssdKodlarAdapter(
     class UssdKodlarVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvUssd = itemView.findViewById<TextView>(R.id.tv_ussd)
         val cardViewUssd = itemView.findViewById<CardView>(R.id.cv_ussd)
-
         val tvInfo = itemView.findViewById<TextView>(R.id.tv_info_ussd)
     }
 

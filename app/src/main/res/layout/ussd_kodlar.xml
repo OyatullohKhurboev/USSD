@@ -4,8 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="15dp"
-    android:layout_marginTop="15dp"
+    android:layout_marginTop="10dp"
     android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -27,9 +28,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="*107#"
-                android:textStyle="normal"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="20sp"
+                android:textStyle="normal" />
 
 
         </androidx.cardview.widget.CardView>
@@ -37,7 +38,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -46,12 +46,14 @@
                 android:id="@+id/tv_info_ussd"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="10dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="Limit qoldig’i va balansni tekshirish"
+                android:textAlignment="center"
                 android:textSize="13sp"
-                android:textStyle="normal"
-                android:text="Limit qoldig’i va balansni tekshirish"/>
+                android:textStyle="normal" />
 
         </LinearLayout>
     </LinearLayout>

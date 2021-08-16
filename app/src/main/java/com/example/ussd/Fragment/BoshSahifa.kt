@@ -128,7 +128,11 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
                 2 -> goToTablayoutTarifReja()
 
+                3 -> goToTablayoutDaqiqa()
+
                 4 -> goToTablayoutUssdKodlar()
+
+                5 -> goToTablayoutSevice()
 
             }
         }
@@ -211,9 +215,19 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)
     }
+    private fun goToTablayoutSevice() {
+        val intent = Intent(context, XizmatlarActivity::class.java)
+        intent.putExtra("dillerType", pageType)
+        activity?.startActivity(intent)
+    }
 
     private fun goToTablayoutTarifReja() {
         val intent = Intent(context, TarifRejaActivity::class.java)
+        intent.putExtra("dillerType", pageType)
+        activity?.startActivity(intent)
+    }
+    private fun goToTablayoutDaqiqa() {
+        val intent = Intent(context, DaqiqaActivity::class.java)
         intent.putExtra("dillerType", pageType)
         activity?.startActivity(intent)
     }
