@@ -19,7 +19,6 @@
         <activity
             android:name=".XizmatlarActivity"
             android:exported="true" />
-        <activity android:name=".ServiceActivity" />
         <activity
             android:name=".UssdKodlarActivity"
             android:screenOrientation="portrait" />

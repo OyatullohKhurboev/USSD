@@ -46,8 +46,8 @@ class TarifRejaAdapter(
         holder.tarifNomi.text = tarifList.tarif_nomi
         holder.abonentTolovi.text = tarifList.abonet_tolovi
         holder.abonentTolovNarxi.text = tarifList.abonet_tolovi
-        holder.chiquvchiOzbkiston.text = tarifList.chiquvchi_ozbekiston
-        holder.uzbBoyicha.text = tarifList.ozbekiston_boyicha
+        holder.chiquvchiOzbkiston.text = tarifList.daqiqa
+        holder.uzbBoyicha.text = tarifList.sms
         holder.daqiqa.text = tarifList.internet_paket
         when (pageType) {
             PageType.Uzmobile -> {

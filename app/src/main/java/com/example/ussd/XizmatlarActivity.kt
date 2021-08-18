@@ -31,10 +31,13 @@ class XizmatlarActivity : AppCompatActivity() {
         setSupportActionBar(toolbar_service)
         supportActionBar?.apply {
             title = "Xizmatlar"
-
-
+            pageType = intent.getSerializableExtra("dillerType") as PageType
+            when(pageType){
+                PageType.Ucell -> callApiToGetInfoAboutUcell()
+                PageType.Beeline -> callApiToGetInfoAboutBeeline()
+            }
         }
-        pageType = intent.getSerializableExtra("dillerType") as PageType
+
 
 
         recyclerView = findViewById(R.id.rv_service)
@@ -57,17 +60,38 @@ class XizmatlarActivity : AppCompatActivity() {
             }
             PageType.Uzmobile -> {
                 toolbar_service.background = ContextCompat.getDrawable(this, R.color.uzmobile)
-                callApiToGetInfoAboutServise()
+                pageType  = intent.getSerializableExtra("dillerType") as PageType
+
             }
         }
 
     }
 
-    private fun callApiToGetInfoAboutServise() {
+    private fun callApiToGetInfoAboutUcell() {
 
         val queue = Volley.newRequestQueue(this)
 
         val url = "https://run.mocky.io/v3/f89abf73-5fdc-4c44-84f1-d675cd8e148b"
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, XizmatlarResponseModel::class.java)
+                adapter = ServiceAdapter(this, model.data, pageType)
+                recyclerView.layoutManager = LinearLayoutManager(this)
+                recyclerView.adapter = adapter
+//                adapter?.reloadData(model.data)
+
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun callApiToGetInfoAboutBeeline() {
+
+        val queue = Volley.newRequestQueue(this)
+
+        val url = "https://run.mocky.io/v3/5e5c90f8-af9e-4be5-b3c7-1e15614a401a"
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->
                 val model = Gson().fromJson(result, XizmatlarResponseModel::class.java)

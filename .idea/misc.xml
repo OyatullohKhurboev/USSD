@@ -7,6 +7,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/activity_services.xml" value="0.16203703703703703" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/activity_sms_paket.xml" value="0.17037037037037037" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/activity_tarif_reja.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/activity_umumiy_diller.xml" value="0.1796875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/activity_ussd_kodlar.xml" value="0.17037037037037037" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/activity_xizmatlar.xml" value="0.1796875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/daqiqa_minut.xml" value="0.16574074074074074" />
@@ -15,7 +16,8 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/fragment_tarif_reja.xml" value="0.16574074074074074" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/mb_paket.xml" value="0.1640625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/ussd_kodlar.xml" value="0.17037037037037037" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/xizmatlar.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/layout/xizmatlar.xml" value="0.16203703703703703" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/USSD2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19583333333333333" />
       </map>
     </option>
   </component>

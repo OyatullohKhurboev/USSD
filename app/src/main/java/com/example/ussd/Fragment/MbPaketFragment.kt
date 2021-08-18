@@ -1,5 +1,6 @@
 package com.example.ussd.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,10 @@ import com.example.ussd.adapters.InternetPaketAdapter
 import com.example.ussd.model.MbPaketInfoModel
 import com.example.ussd.model.MbPaketResponseModel
 import com.google.gson.Gson
+import android.content.Intent.getIntent
+
+
+
 
 
 class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
@@ -35,17 +40,21 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        callApiToGetInfoAboutMb()
+
+       when(pageType){
+           PageType.Ucell -> callApiToGetInfoAboutUcell()
+           PageType.Beeline -> callApiToGetInfoAboutBeeline()
+       }
 
 
         rvInternet = view.findViewById(R.id.rvMbPAket)
         rvInternet.layoutManager = LinearLayoutManager(context)
         adapter = InternetPaketAdapter(requireActivity(), internetList, pageType)
         rvInternet.adapter = adapter
-        callApiToGetInfoAboutMb()
+
     }
 
-    private fun callApiToGetInfoAboutMb() {
+    private fun callApiToGetInfoAboutUcell() {
 
         val queue = Volley.newRequestQueue(context)
 
@@ -67,4 +76,27 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
         queue.add(request)
 
     }
-}
+    private fun callApiToGetInfoAboutBeeline() {
+
+        val queue = Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/aab36454-2914-4c64-9240-02230f3f5661"
+        internetList = ArrayList<MbPaketInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, MbPaketResponseModel::class.java)
+                for (data in model.data) {
+                    if (data.type == type)
+                        internetList.add(data)
+                }
+
+                adapter.reloadData(internetList)
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+
+}}
+

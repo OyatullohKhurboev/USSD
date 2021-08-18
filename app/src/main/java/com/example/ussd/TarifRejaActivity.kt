@@ -3,6 +3,7 @@ package com.example.ussd
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TableLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
@@ -16,6 +17,7 @@ import com.example.ussd.model.TarifRejaModel
 import com.example.ussd.model.TariffsCategoriesModel
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_mb_paket_.*
 import kotlinx.android.synthetic.main.activity_tarif_reja.*
 
 
@@ -89,6 +91,7 @@ class TarifRejaActivity : AppCompatActivity() {
             viewPager_tarif.adapter = tablayoutAdapter
             viewPager_tarif.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(
                 tabLayout_tarif))
+            tabLayout_tarif.tabMode = TabLayout.MODE_SCROLLABLE
             tabLayout_tarif.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     viewPager_tarif.currentItem = tab.position
@@ -104,7 +107,7 @@ class TarifRejaActivity : AppCompatActivity() {
     private fun getCategories() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://run.mocky.io/v3/91fe783b-e18e-461c-a341-9d4fc423e31f"
+        val url = "https://run.mocky.io/v3/6d3ebff0-4aa5-4c45-9285-6cc333ec13d0"
 
         val request = object : StringRequest(Method.GET, url,
             Response.Listener { result ->
@@ -119,6 +122,7 @@ class TarifRejaActivity : AppCompatActivity() {
         queue.add(request)
 
     }
+
 
 
     override fun onSupportNavigateUp(): Boolean {

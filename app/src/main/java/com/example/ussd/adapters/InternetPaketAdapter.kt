@@ -74,6 +74,7 @@ class InternetPaketAdapter(
             }
         }
 
+
         holder.itemView.setOnClickListener {
 
         }

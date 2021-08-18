@@ -20,7 +20,7 @@ class SmsToplamActivity : AppCompatActivity() {
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
     var tablayoutAdapter: TablayoutAdapterSmsToplam? = null
-     var categories = arrayOf("Oylik SMS")
+    var categories = arrayOf("Oylik SMS")
     var pageType: PageType = PageType.Ucell
 
 
@@ -28,7 +28,7 @@ class SmsToplamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sms_paket)
         setSupportActionBar(toolbar_sms)
-
+        pageType = intent.getSerializableExtra("dillerType") as PageType
         supportActionBar?.apply {
             title = "SMS To'plam"
 
@@ -36,12 +36,14 @@ class SmsToplamActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
 
         }
-        val pageType: PageType = intent.getSerializableExtra("dillerType") as PageType
 
 
         tabLayout = findViewById(R.id.tabLayout_sms)
         viewPager = findViewById(R.id.viewPager_sms)
-        getCategories()
+        when (pageType) {
+            PageType.Ucell -> getCategoriesUcell()
+            PageType.Mobiuz -> getCategoriesMobiuz()
+        }
 
         when (pageType) {
             PageType.Mobiuz -> {
@@ -81,9 +83,9 @@ class SmsToplamActivity : AppCompatActivity() {
 
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val toolbarAdapter = TablayoutAdapterSmsToplam(this,
-                supportFragmentManager,
-                tabLayout.tabCount,
-                pageType, categories)
+            supportFragmentManager,
+            tabLayout.tabCount,
+            pageType, categories)
 
         viewPager.adapter = toolbarAdapter
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
@@ -100,13 +102,7 @@ class SmsToplamActivity : AppCompatActivity() {
     }
 
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
-
-    private fun getCategories() {
+    private fun getCategoriesUcell() {
 
         val queue = Volley.newRequestQueue(this)
         val url = "https://run.mocky.io/v3/746126f1-e057-4002-bdee-f6c87caa309a"
@@ -122,5 +118,28 @@ class SmsToplamActivity : AppCompatActivity() {
             }) {}
 
         queue.add(request)
+    }
+
+    private fun getCategoriesMobiuz() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/5299d720-0adc-496f-9acf-e6a8b03218a1"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }
