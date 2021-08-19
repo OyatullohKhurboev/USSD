@@ -7,10 +7,12 @@ data class TarifRejaResponseModel(
 
 data class TarifRejaInfoModel (
     val tarif_nomi: String,
-    val abonet_tolovi: String,
+    val tv_tolov : String,
+    val abonent_tolovi: String,
+    val tv_uzb_boyicha:String,
+    val boyicha : String,
     val daqiqa: String,
-    val sms: String,
-    val internet_paket: String,
+
     val type: String
 
     )

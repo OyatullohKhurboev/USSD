@@ -33,33 +33,43 @@ class DaqiqaAdapter(
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val DaqiqaList = DaqiqaList[position]
-
         holder.tvToplam.text = DaqiqaList.name
-
+        holder.tvDaqNarx.text = DaqiqaList.tv_narxi
+        holder.tvSom.text = DaqiqaList.narxi
+        holder.tvMuddat.text = DaqiqaList.tv_muddat
+        holder.tvKun.text = DaqiqaList.mudat
         holder.tvActive.text = DaqiqaList.Faollashtirish
-
-        holder.tvCode.text = DaqiqaList.mudat
-
-        holder.tvDaqNarx.text= DaqiqaList.tv_narxi
-        holder.tvKun.text = DaqiqaList.tv_muddat
-
+//        holder.tvToplam.text = DaqiqaList.name
+//
+//        holder.tvActive.text = DaqiqaList.Faollashtirish
+//
+//        holder.tvCode.text = DaqiqaList.mudat
+//
+//        holder.tvDaqNarx.text = DaqiqaList.tv_narxi
+//        holder.tvKun.text = DaqiqaList.tv_muddat
 
 
         when (pageType) {
             PageType.Ucell -> {
-                holder.tvToplam.setTextColor(ContextCompat.getColor(context, R.color.ucell))
+                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context,
+                    R.color.ucell))
 
             }
             PageType.Beeline -> {
-                holder.tvToplam.setTextColor(ContextCompat.getColor(context, R.color.beeline))
+                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context,
+                    R.color.beeline))
 
             }
             PageType.Mobiuz -> {
-                holder.tvToplam.setTextColor(ContextCompat.getColor(context, R.color.mobiuz))
+                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context,
+                    R.color.mobiuz))
+
 
             }
             PageType.Uzmobile -> {
-                holder.tvToplam.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))
+                holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context,
+                    R.color.uzmobile))
+
 
             }
         }
@@ -78,6 +88,7 @@ class DaqiqaAdapter(
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvToplam = itemView.findViewById<TextView>(R.id.tv_daq)
+        val cardView = itemView.findViewById<CardView>(R.id.cv_daq)
         val tvDaqNarx = itemView.findViewById<TextView>(R.id.tv_narx_daq)
 
         val tvSom = itemView.findViewById<TextView>(R.id.tv_daq_som)

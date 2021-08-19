@@ -98,6 +98,8 @@ class MbPaketActivity : AppCompatActivity() {
                 categories)
 
         viewPager.adapter = tablayoutAdapter
+
+        tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {

@@ -41,7 +41,10 @@ class TarifRejaActivity : AppCompatActivity() {
         }
         pageType = intent.getSerializableExtra("dillerType") as PageType
 
+when(pageType){
+    PageType.Ucell ->getCategoriesUcell()
 
+}
 
         tabLayout_tarif = findViewById(R.id.tabLayout_tarif)
         viewPager_tarif = findViewById(R.id.viewPager_tarif)
@@ -50,7 +53,6 @@ class TarifRejaActivity : AppCompatActivity() {
 
 
 
-        getCategories()
 
         when (pageType) {
             PageType.Mobiuz -> {
@@ -104,10 +106,10 @@ class TarifRejaActivity : AppCompatActivity() {
         }
     }
 
-    private fun getCategories() {
+    private fun getCategoriesUcell() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "https://run.mocky.io/v3/6d3ebff0-4aa5-4c45-9285-6cc333ec13d0"
+        val url = "https://run.mocky.io/v3/de87ddab-da2f-4606-baf2-d996023d8b7a"
 
         val request = object : StringRequest(Method.GET, url,
             Response.Listener { result ->

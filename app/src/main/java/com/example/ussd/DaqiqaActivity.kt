@@ -26,10 +26,10 @@ class DaqiqaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daqiqa)
-        setSupportActionBar(toolbar_tarif)
+        setSupportActionBar(toolbar_daqiqa)
 
         supportActionBar?.apply {
-            title = "DaqiqaMinutlar"
+            title = "Daqiqa Minutlar"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }

@@ -47,7 +47,7 @@ class TarifRejaFragment(val type: String, val pageType: PageType) : Fragment() {
 
         val queue =   Volley.newRequestQueue(context)
 
-        val url = "https://run.mocky.io/v3/3df7ebb5-9ef9-4866-8482-f1fc0bf4d4f4"
+        val url = "https://run.mocky.io/v3/ac14c145-f534-4fea-b346-bbc3aeb0f41c"
         tarifList = ArrayList<TarifRejaInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->

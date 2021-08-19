@@ -44,11 +44,11 @@ class TarifRejaAdapter(
 
 
         holder.tarifNomi.text = tarifList.tarif_nomi
-        holder.abonentTolovi.text = tarifList.abonet_tolovi
-        holder.abonentTolovNarxi.text = tarifList.abonet_tolovi
-        holder.chiquvchiOzbkiston.text = tarifList.daqiqa
-        holder.uzbBoyicha.text = tarifList.sms
-        holder.daqiqa.text = tarifList.internet_paket
+        holder.abonentToloviText.text = tarifList.tv_tolov
+        holder.abonentTolovNarxi.text = tarifList.abonent_tolovi
+        holder.chiquvchiOzbkiston.text = tarifList.tv_uzb_boyicha
+        holder.uzbBoyicha.text = tarifList.boyicha
+        holder.daqiqa.text = tarifList.daqiqa
         when (pageType) {
             PageType.Uzmobile -> {
                 holder.tarifNomi.setTextColor(ContextCompat.getColor(context, R.color.uzmobile))
@@ -95,8 +95,8 @@ class TarifRejaAdapter(
     class TarifRejaVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tarifNomi = itemView.findViewById<TextView>(R.id.tv_tarif_nomi)
         val cardView = itemView.findViewById<CardView>(R.id.cv_tarif_reja_linear)
-        val abonentTolovi = itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
-        val abonentTolovNarxi = itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
+        val abonentToloviText= itemView.findViewById<TextView>(R.id.tv_AbonentTolovi)
+        val abonentTolovNarxi = itemView.findViewById<TextView>(R.id.tv_Som)
         val chiquvchiOzbkiston = itemView.findViewById<TextView>(R.id.tv_OzbekitonBoyicha)
         val uzbBoyicha = itemView.findViewById<TextView>(R.id.tv_Boyicha)
         val daqiqa = itemView.findViewById<TextView>(R.id.tv_daqiqa)

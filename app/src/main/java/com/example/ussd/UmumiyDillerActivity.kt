@@ -14,7 +14,6 @@ class UmumiyDillerActivity : AppCompatActivity() {
 
 
 
-
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =

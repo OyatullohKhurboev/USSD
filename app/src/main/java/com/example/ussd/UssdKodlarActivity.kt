@@ -35,7 +35,10 @@ class UssdKodlarActivity: AppCompatActivity() {
         }
          pageType = intent.getSerializableExtra("dillerType") as PageType
 
+when(pageType){
 
+    PageType.Ucell -> callApiToGetInfoAboutUcell()
+}
         recyclerView = findViewById(R.id.rv_ussd)
 
 
@@ -56,13 +59,13 @@ class UssdKodlarActivity: AppCompatActivity() {
             }
             PageType.Uzmobile -> {
                 toolbar_ussd.background = ContextCompat.getDrawable(this, R.color.uzmobile)
-                callApiToGetInfoAboutUssd()
+
             }
         }
 
     }
 
-    private fun callApiToGetInfoAboutUssd() {
+    private fun callApiToGetInfoAboutUcell() {
 
         val queue = Volley.newRequestQueue(this)
 
