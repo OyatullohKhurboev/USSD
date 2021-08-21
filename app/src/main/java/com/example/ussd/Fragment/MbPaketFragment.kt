@@ -44,6 +44,8 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
        when(pageType){
            PageType.Ucell -> callApiToGetInfoAboutUcell()
            PageType.Beeline -> callApiToGetInfoAboutBeeline()
+           PageType.Mobiuz -> callApiToGetInfoAboutMobiuz()
+           PageType.Uzmobile -> callApiToGetInfoAboutUzmobile()
        }
 
 
@@ -76,11 +78,56 @@ class MbPaketFragment(val type: String, val pageType: PageType) : Fragment() {
         queue.add(request)
 
     }
+    private fun callApiToGetInfoAboutMobiuz() {
+
+        val queue = Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/834df8bb-96a1-441d-ba82-8e3b89c00896"
+        internetList = ArrayList<MbPaketInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, MbPaketResponseModel::class.java)
+                for (data in model.data) {
+                    if (data.type == type)
+                        internetList.add(data)
+                }
+
+                adapter.reloadData(internetList)
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
     private fun callApiToGetInfoAboutBeeline() {
 
         val queue = Volley.newRequestQueue(context)
 
         val url = "https://run.mocky.io/v3/aab36454-2914-4c64-9240-02230f3f5661"
+        internetList = ArrayList<MbPaketInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, MbPaketResponseModel::class.java)
+                for (data in model.data) {
+                    if (data.type == type)
+                        internetList.add(data)
+                }
+
+                adapter.reloadData(internetList)
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+
+}
+    private fun callApiToGetInfoAboutUzmobile() {
+
+        val queue = Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/861d9bec-2d9e-4cab-99cc-a3b3db935f0a"
         internetList = ArrayList<MbPaketInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->

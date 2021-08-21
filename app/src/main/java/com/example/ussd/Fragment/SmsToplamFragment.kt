@@ -36,8 +36,9 @@ class SmsToplamFragment(val type: String, val pageType: PageType) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         when (pageType) {
-
+            PageType.Beeline -> callApiToGetInfoAboutSmsBeelie()
             PageType.Mobiuz -> callApiToGetInfoAboutSmsMobiuz()
+            PageType.Uzmobile -> callApiToGetInfoAboutSmsUzmobile()
             PageType.Ucell -> callApiToGetInfoAboutSmsUcell()
         }
 
@@ -77,6 +78,51 @@ class SmsToplamFragment(val type: String, val pageType: PageType) : Fragment() {
         val queue = Volley.newRequestQueue(context)
 
         val url = "https://run.mocky.io/v3/700fc69b-b85e-43ee-8e3e-65ebb92c2978"
+        smsList = ArrayList<SmsPaketInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, SmsPaketResponseModel::class.java)
+                for (data in model.data) {
+                    if (data.type == type)
+                        smsList.add(data)
+                }
+
+                adapter.reloadData(smsList)
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun callApiToGetInfoAboutSmsUzmobile() {
+
+        val queue = Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/66c87526-195a-4dfb-bc1d-45ef5a8b16a2"
+        smsList = ArrayList<SmsPaketInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, SmsPaketResponseModel::class.java)
+                for (data in model.data) {
+                    if (data.type == type)
+                        smsList.add(data)
+                }
+
+                adapter.reloadData(smsList)
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+
+    private fun callApiToGetInfoAboutSmsBeelie() {
+
+        val queue = Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/1c3f9499-1132-411f-b7f7-2f2ad4715883"
         smsList = ArrayList<SmsPaketInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->

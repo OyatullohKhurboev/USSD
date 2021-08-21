@@ -1,4 +1,5 @@
 package com.example.ussd
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -28,7 +29,7 @@ class MbPaketActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mb_paket_)
         setSupportActionBar(toolbar)
-        pageType  = intent.getSerializableExtra("dillerType") as PageType
+        pageType = intent.getSerializableExtra("dillerType") as PageType
 
         supportActionBar?.apply {
             title = "Mb To'plam"
@@ -36,9 +37,11 @@ class MbPaketActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        when(pageType){
+        when (pageType) {
             PageType.Beeline -> getCategoriesBeeline()
             PageType.Ucell -> getCategoriesUcell()
+            PageType.Mobiuz -> getCategoriesMobiuz()
+            PageType.Uzmobile -> getCategoriesUZmobile()
         }
 
 
@@ -49,7 +52,7 @@ class MbPaketActivity : AppCompatActivity() {
 
 
 
-
+        tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
 
 
         when (pageType) {
@@ -99,7 +102,7 @@ class MbPaketActivity : AppCompatActivity() {
 
         viewPager.adapter = tablayoutAdapter
 
-        tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
+
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
@@ -132,10 +135,49 @@ class MbPaketActivity : AppCompatActivity() {
         queue.add(request)
 
     }
+
     private fun getCategoriesBeeline() {
 
         val queue = Volley.newRequestQueue(this)
         val url = "https://run.mocky.io/v3/c11cdea9-0935-4f45-a861-5807fe8e1714"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+
+    private fun getCategoriesMobiuz() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/493163b8-443b-49b0-9557-932087e70b44"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+
+    private fun getCategoriesUZmobile() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/641dc04d-8369-40e8-b57b-869ca4ece240"
 
         val request = object : StringRequest(Method.GET, url,
             Response.Listener { result ->

@@ -39,14 +39,8 @@ class DaqiqaAdapter(
         holder.tvMuddat.text = DaqiqaList.tv_muddat
         holder.tvKun.text = DaqiqaList.mudat
         holder.tvActive.text = DaqiqaList.Faollashtirish
-//        holder.tvToplam.text = DaqiqaList.name
-//
-//        holder.tvActive.text = DaqiqaList.Faollashtirish
-//
-//        holder.tvCode.text = DaqiqaList.mudat
-//
-//        holder.tvDaqNarx.text = DaqiqaList.tv_narxi
-//        holder.tvKun.text = DaqiqaList.tv_muddat
+        holder.tvCode.text = DaqiqaList.code
+
 
 
         when (pageType) {

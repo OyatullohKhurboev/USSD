@@ -35,6 +35,8 @@ class XizmatlarActivity : AppCompatActivity() {
             when(pageType){
                 PageType.Ucell -> callApiToGetInfoAboutUcell()
                 PageType.Beeline -> callApiToGetInfoAboutBeeline()
+                PageType.Mobiuz -> callApiToGetInfoAboutMobiuz()
+                PageType.Uzmobile -> callApiToGetInfoAboutUzmobile()
             }
         }
 
@@ -87,11 +89,51 @@ class XizmatlarActivity : AppCompatActivity() {
         queue.add(request)
 
     }
+    private fun callApiToGetInfoAboutMobiuz() {
+
+        val queue = Volley.newRequestQueue(this)
+
+        val url = "https://run.mocky.io/v3/a7a041e2-92de-446e-9985-2efb3bbfc4bd"
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, XizmatlarResponseModel::class.java)
+                adapter = ServiceAdapter(this, model.data, pageType)
+                recyclerView.layoutManager = LinearLayoutManager(this)
+                recyclerView.adapter = adapter
+//                adapter?.reloadData(model.data)
+
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
     private fun callApiToGetInfoAboutBeeline() {
 
         val queue = Volley.newRequestQueue(this)
 
         val url = "https://run.mocky.io/v3/5e5c90f8-af9e-4be5-b3c7-1e15614a401a"
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, XizmatlarResponseModel::class.java)
+                adapter = ServiceAdapter(this, model.data, pageType)
+                recyclerView.layoutManager = LinearLayoutManager(this)
+                recyclerView.adapter = adapter
+//                adapter?.reloadData(model.data)
+
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun callApiToGetInfoAboutUzmobile() {
+
+        val queue = Volley.newRequestQueue(this)
+
+        val url = "https://run.mocky.io/v3/b9389ebd-e354-4745-80db-82ef3ce8b136"
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->
                 val model = Gson().fromJson(result, XizmatlarResponseModel::class.java)

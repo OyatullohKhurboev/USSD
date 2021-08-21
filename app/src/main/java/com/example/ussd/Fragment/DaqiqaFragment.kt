@@ -52,7 +52,7 @@ class DaqiqaFragment(val type: String, val pageType: PageType) : Fragment() {
 
         val queue =   Volley.newRequestQueue(context)
 
-        val url = "https://run.mocky.io/v3/1c7dd753-7b56-4161-9461-65fcc194d828"
+        val url = "https://run.mocky.io/v3/0f86ba98-469b-42b4-bbe1-fac8471f8557"
         daqiqaList = ArrayList<DaqiqaInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->

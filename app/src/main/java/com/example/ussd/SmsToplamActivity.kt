@@ -42,7 +42,9 @@ class SmsToplamActivity : AppCompatActivity() {
         viewPager = findViewById(R.id.viewPager_sms)
         when (pageType) {
             PageType.Ucell -> getCategoriesUcell()
+            PageType.Uzmobile -> getCategoriesUzmobile()
             PageType.Mobiuz -> getCategoriesMobiuz()
+            PageType.Beeline -> getCategoriesBeeline()
         }
 
         when (pageType) {
@@ -80,7 +82,7 @@ class SmsToplamActivity : AppCompatActivity() {
             tabLayout.addTab(tabLayout.newTab().setText(category))
 
         }
-
+        tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val toolbarAdapter = TablayoutAdapterSmsToplam(this,
             supportFragmentManager,
@@ -119,11 +121,44 @@ class SmsToplamActivity : AppCompatActivity() {
 
         queue.add(request)
     }
+    private fun getCategoriesUzmobile() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/24c00e3b-c6c6-4f35-adeb-ec5a3099527b"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+    }
 
     private fun getCategoriesMobiuz() {
 
         val queue = Volley.newRequestQueue(this)
         val url = "https://run.mocky.io/v3/5299d720-0adc-496f-9acf-e6a8b03218a1"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+    }private fun getCategoriesBeeline() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/f594f27d-4123-495b-8d42-cefa03b671c2"
 
         val request = object : StringRequest(Method.GET, url,
             Response.Listener { result ->

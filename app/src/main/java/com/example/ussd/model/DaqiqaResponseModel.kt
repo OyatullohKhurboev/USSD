@@ -13,7 +13,8 @@ data class DaqiqaInfoModel(
     val tv_muddat: String,
     val mudat: String,
     val Faollashtirish: String,
-    val type: String,
+    val code : String,
+    val type: String
 
 
     )

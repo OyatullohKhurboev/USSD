@@ -41,10 +41,13 @@ class TarifRejaActivity : AppCompatActivity() {
         }
         pageType = intent.getSerializableExtra("dillerType") as PageType
 
-when(pageType){
-    PageType.Ucell ->getCategoriesUcell()
+        when (pageType) {
+            PageType.Ucell -> getCategoriesUcell()
+            PageType.Beeline -> getCategoriesBeeline()
+            PageType.Uzmobile -> getCategoriesUzmobile()
+            PageType.Mobiuz -> getCategoriesMobiuz()
 
-}
+        }
 
         tabLayout_tarif = findViewById(R.id.tabLayout_tarif)
         viewPager_tarif = findViewById(R.id.viewPager_tarif)
@@ -125,6 +128,61 @@ when(pageType){
 
     }
 
+    private fun getCategoriesMobiuz() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/942a7cfb-21f6-49f3-b714-07bd57191871"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+
+    private fun getCategoriesBeeline() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/5b0be5c4-416a-425f-8a0d-af8939867d43"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun getCategoriesUzmobile() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://run.mocky.io/v3/c5f0813b-d65e-4450-a3c8-7499a20fb6c8"
+
+        val request = object : StringRequest(Method.GET, url,
+            Response.Listener { result ->
+                val categories = Gson().fromJson(result, TariffsCategoriesModel::class.java)
+                this.categories = categories.names
+                tablayoutAdapter?.addCategories(categories.names)
+                addCategoriesToTab()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(this, "error", Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
 
 
     override fun onSupportNavigateUp(): Boolean {

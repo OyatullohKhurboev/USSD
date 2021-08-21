@@ -31,10 +31,18 @@ class TarifRejaFragment(val type: String, val pageType: PageType) : Fragment() {
         return inflater.inflate(R.layout.fragment_tarif_reja, container, false)
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        callApiToGetInfoAboutTariffs()
 
+        when(pageType){
+            PageType.Ucell ->callApiToGetInfoAboutTariffsUcell()
+            PageType.Beeline -> callApiToGetInfoAboutTariffsBeeline()
+            PageType.Mobiuz -> callApiToGetInfoAboutTariffsMobiuz()
+            PageType.Uzmobile -> callApiToGetInfoAboutTariffsUzmobile()
+
+        }
 
 
         rvTarif = view.findViewById(R.id.rv_tarif_reja)
@@ -43,11 +51,80 @@ class TarifRejaFragment(val type: String, val pageType: PageType) : Fragment() {
         rvTarif.adapter = adapter
     }
 
-    private fun callApiToGetInfoAboutTariffs() {
+    private fun callApiToGetInfoAboutTariffsUcell() {
 
         val queue =   Volley.newRequestQueue(context)
 
         val url = "https://run.mocky.io/v3/ac14c145-f534-4fea-b346-bbc3aeb0f41c"
+        tarifList = ArrayList<TarifRejaInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, TarifRejaResponseModel::class.java)
+                for(data in model.data) {
+                    if (data.type == type)
+                        tarifList.add(data)
+                }
+
+                adapter.reloadData(tarifList)
+//                Toast.makeText(context, model.data[0].abonet_tolovi, Toast.LENGTH_LONG).show()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun callApiToGetInfoAboutTariffsBeeline() {
+
+        val queue =   Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/1139f781-45ae-4d8e-9a80-8c010ca4d458"
+        tarifList = ArrayList<TarifRejaInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, TarifRejaResponseModel::class.java)
+                for(data in model.data) {
+                    if (data.type == type)
+                        tarifList.add(data)
+                }
+
+                adapter.reloadData(tarifList)
+//                Toast.makeText(context, model.data[0].abonet_tolovi, Toast.LENGTH_LONG).show()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun callApiToGetInfoAboutTariffsMobiuz() {
+
+        val queue =   Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/b9bb3d94-81b8-4e19-a41d-df8ddb294ebe"
+        tarifList = ArrayList<TarifRejaInfoModel>()
+        val request = object : StringRequest(Request.Method.GET, url,
+            Response.Listener { result ->
+                val model = Gson().fromJson(result, TarifRejaResponseModel::class.java)
+                for(data in model.data) {
+                    if (data.type == type)
+                        tarifList.add(data)
+                }
+
+                adapter.reloadData(tarifList)
+//                Toast.makeText(context, model.data[0].abonet_tolovi, Toast.LENGTH_LONG).show()
+            }, Response.ErrorListener { error ->
+                Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
+            }) {}
+
+        queue.add(request)
+
+    }
+    private fun callApiToGetInfoAboutTariffsUzmobile() {
+
+        val queue =   Volley.newRequestQueue(context)
+
+        val url = "https://run.mocky.io/v3/f6d0cd70-ecfd-4afd-8ad6-2790884e60b8"
         tarifList = ArrayList<TarifRejaInfoModel>()
         val request = object : StringRequest(Request.Method.GET, url,
             Response.Listener { result ->
