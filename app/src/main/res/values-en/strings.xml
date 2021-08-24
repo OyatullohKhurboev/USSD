@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">USSD</string>
-    <string name="sms200">200 SMS</string>
-    <string name="sms500">500 SMS</string>
-    <string name="ommabop">Ommabop Tanlov</string>
-    <string name="megabayt">Megabayt</string>
+    <string name="sms200">200 CMC</string>
+    <string name="sms500">500 CMC</string>
+    <string name="ommabop">Popular Choice</string>
+    <string name="megabayt">Megabytes</string>
     <string name="sms_10_uzmobile">Narxi 420 so‘m Amal qilish muddati 30 kun Faollashtirish: *111*2*1*1#</string>
     <string name="sms_50_uzmobile">Narxi 1 680 so‘m Amal qilish muddati 30 kun Faollashtirish: *111*2*1*2#</string>
     <string name="sms_200_uzmobile">Narxi 5 200 so‘m Amal qilish muddati 30 kun Faollashtirish: *111*2*1*3#</string>

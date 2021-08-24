@@ -128,7 +128,7 @@
 
         <com.synnapps.carouselview.CarouselView
             android:id="@+id/carouselView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
@@ -136,6 +136,7 @@
             app:fillColor="@color/white"
             app:pageColor="#8c8c8c"
             app:radius="4dp"
+
             app:slideInterval="3000"
             app:strokeColor="#FF777777"
             app:strokeWidth="1dp" />
@@ -146,7 +147,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Ommabop Tanlov"
+        android:text="@string/ommabop"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold" />
@@ -208,7 +209,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
                                 android:layout_weight="1"
-                                android:text="Megabayt"
+                                android:text="@string/megabayt"
                                 android:textColor="@color/white" />
 
                             <ImageView

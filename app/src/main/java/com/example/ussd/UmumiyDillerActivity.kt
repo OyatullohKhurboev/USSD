@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.ussd.Fragment.BoshSahifa
+import com.example.ussd.Fragment.Language
+import kotlinx.android.synthetic.main.activity_umumiy_diller.*
 
 
 class UmumiyDillerActivity : AppCompatActivity() {
@@ -12,6 +14,14 @@ class UmumiyDillerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_umumiy_diller)
         makeCurrentFragment(BoshSahifa())
 
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.bosh_sahifa -> makeCurrentFragment(BoshSahifa())
+                R.id.til -> makeCurrentFragment(Language())
+                else -> makeCurrentFragment(BoshSahifa())
+            }
+            true
+        }
 
 
     }
@@ -20,6 +30,5 @@ class UmumiyDillerActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame_menu, fragment)
             commit()
-
-
-}}
+        }
+}

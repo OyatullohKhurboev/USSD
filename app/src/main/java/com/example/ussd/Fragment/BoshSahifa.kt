@@ -78,6 +78,9 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
 
         gridViewAdapters = GridViewAdapter(view.context, arrayList!!, R.color.uzmobile)
         gridView?.adapter = gridViewAdapters
+
+
+
         cv_ucell.apply {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -116,6 +119,7 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
         }
 
 
+
         gridView?.onItemClickListener = this
         imageArray.add(R.drawable.chiroyli_raqam)
         imageArray.add(R.drawable.zor_beeline)
@@ -139,8 +143,8 @@ class BoshSahifa : Fragment(), AdapterView.OnItemClickListener {
         }
 
 
-                carouselView.pageCount = imageArray.size
-                        carouselView . setImageListener (imageListener)
+        carouselView.setImageListener(imageListener)
+        carouselView.pageCount = imageArray.size
 
 
                         cv_ucell . setOnClickListener {

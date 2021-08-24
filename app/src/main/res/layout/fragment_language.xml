@@ -24,6 +24,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_lang_uz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -35,6 +36,7 @@
             android:textStyle="normal" />
 
         <TextView
+            android:id="@+id/tv_lang_en"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -46,6 +48,7 @@
             android:textStyle="normal" />
 
         <TextView
+            android:id="@+id/tv_lang_ru"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
